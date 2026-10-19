@@ -1,0 +1,35 @@
+.site-header { text-align: left; position: sticky; top: 0; z-index: 20; min-height: 72px; padding: 0 clamp(24px, 5vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 24px; background: var(--color-bg); border-bottom: 1px solid transparent; transition: border-color .18s ease, box-shadow .18s ease; }
+.site-header.is-scrolled { border-bottom-color: var(--color-border); box-shadow: 0 4px 16px var(--color-shadow); }
+.site-brand { font-family: Baskerville, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; font-size: 2rem; line-height: 1; letter-spacing: -.055em; color: var(--color-ink); text-decoration: none; }
+.site-brand span { color: var(--color-coral); }
+.site-nav { display: flex; align-items: center; gap: clamp(24px, 3vw, 44px); font-family: var(--font-sans); font-size: .8rem; }
+.site-nav > a { position: relative; padding: 25px 0; color: var(--color-muted); text-decoration: none; transition: color .15s ease; }
+.site-nav > a::after { content: ''; position: absolute; bottom: 16px; left: 0; right: 0; height: 2px; background: var(--color-accent); opacity: 0; transition: opacity .15s ease; }
+.site-nav > a:hover, .site-nav > a:focus-visible, .site-nav > a[aria-current] { color: var(--color-ink); }
+.site-nav > a:hover::after, .site-nav > a:focus-visible::after, .site-nav > a[aria-current]::after { opacity: 1; }
+.site-nav > a[aria-current] { font-weight: 600; }
+.site-resume { display: flex; align-items: center; gap: 7px; color: var(--color-muted); cursor: default; }
+.site-resume-note { font-size: .6rem; padding: 3px 6px; border: 1px solid var(--color-border); border-radius: 3px; }
+.site-menu-toggle { display: none; }
+/* Anchor offsets apply to native anchors and existing project-tab deep links. */
+#projects, #about, #skills, #contact, #hero-title { scroll-margin-top: 96px; }
+#projects:focus, #about:focus, #skills:focus, #contact:focus, #hero-title:focus { outline: none; }
+/* Quiet section boundaries, preserving existing internal layouts. */
+.projects { border-top: 1px solid var(--color-border); }
+.about { border-top: 1px solid var(--color-border); padding-top: clamp(72px, 10vh, 112px); }
+.skills { border-top: 1px solid var(--color-border); }
+.contact { border-top: 1px solid var(--color-border); }
+@media (max-width: 850px) {
+  .site-header { min-height: 68px; flex-wrap: wrap; gap: 0 24px; }
+  .site-brand { padding: 18px 0; font-size: 1.9rem; }
+  .site-menu-toggle { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-bg-alt); color: var(--color-ink); font: inherit; font-size: .8rem; }
+  .site-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 0 24px 16px; background: var(--color-bg); border-bottom: 1px solid var(--color-border); box-shadow: 0 8px 16px var(--color-shadow); }
+  .site-nav.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .site-nav > a, .site-resume { padding: 16px 8px; border-top: 1px solid var(--color-border); min-height: 48px; }
+  .site-nav > a::after { bottom: 12px; left: 8px; right: auto; width: 24px; }
+  .site-nav > a[aria-current] { background: var(--color-surface-soft); }
+  .site-resume { justify-content: space-between; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header, .site-header *, .site-header *::after { transition: none !important; }
+}

@@ -1,0 +1,28 @@
+/* Editorial typography stays scoped; colors inherit the shared site palette. */
+.professional-hero,
+.projects {
+  --font-serif: 'Baskerville', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-sans: 'Avenir Next', Avenir, 'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: var(--font-sans);
+}
+.professional-hero { background: var(--color-bg); }
+.professional-hero .professional-hero-eyebrow { margin-bottom: 22px; color: var(--color-muted); font-size: .72rem; }
+.professional-hero h1 { font-family: var(--font-serif); font-size: clamp(4.5rem, 8.2vw, 7.6rem); font-weight: 400; line-height: .96; letter-spacing: -.055em; margin-bottom: 24px; }
+.professional-hero h1 .hero-name-last { display: block; color: var(--color-ink-strong); }
+.professional-hero h1 .hero-name-period { color: var(--color-coral); }
+.professional-hero-role { font-family: var(--font-sans); font-size: clamp(1.1rem, 1.8vw, 1.4rem); font-weight: 600; letter-spacing: -.02em; color: var(--color-ink); margin: 0 0 20px; }
+.professional-hero .professional-hero-intro { font-size: .96rem; line-height: 1.75; max-width: 52ch; }
+.professional-hero-aside { border-color: var(--color-border); }
+.professional-hero-aside img { background: var(--color-surface-soft); border-radius: 4px; }
+.professional-hero .professional-hero-work { background: var(--color-ink); color: var(--color-on-accent); }
+.professional-hero .professional-hero-work:hover,
+.professional-hero .professional-hero-work:focus-visible { background: var(--color-accent); }
+.professional-hero :is(a, button):focus-visible,
+.projects :is(a, button):focus-visible { outline-color: var(--color-accent); }
+.projects .work-preview-media { background: var(--color-surface-soft); }
+.projects .work-index li.is-active > a { background: var(--color-surface-soft); }
+.projects .work-browse { color: var(--color-ink); }
+.projects .project-card p.project-category { color: var(--color-accent); font-weight: 700; }
+@media (max-width: 850px) {
+  .professional-hero h1 { font-size: clamp(4rem, 13vw, 6.5rem); }
+}

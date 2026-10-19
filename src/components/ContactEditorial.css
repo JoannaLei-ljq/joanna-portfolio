@@ -1,0 +1,20 @@
+.contact.contact-editorial { padding: clamp(72px, 10vw, 144px) max(28px, calc((100% - 1100px) / 2)) 64px; text-align: left; }
+.contact-editorial .section-label { margin-bottom: 36px; }
+.contact-editorial .contact-heading-row { justify-content: flex-start; align-items: flex-end; gap: 28px; }
+.contact.contact-editorial h2 { font-family: Baskerville, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; font-size: clamp(3.2rem, 7.5vw, 7rem); font-weight: 400; line-height: 1.02; letter-spacing: -.045em; margin: 0; }
+.contact-editorial .contact-mark { margin-bottom: 12px; flex-shrink: 0; }
+.contact-editorial .contact-subtitle { max-width: 48ch; margin: 36px 0 56px; font-size: 1rem; line-height: 1.8; }
+.contact-editorial .contact-links { display: flex; flex-wrap: wrap; justify-content: flex-start; align-items: stretch; gap: 24px 48px; border-top: 1px solid var(--color-border); padding-top: 28px; }
+.contact-editorial .contact-link { width: auto; max-width: none; min-height: 44px; padding: 8px 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; font-size: 1rem; font-weight: 400; text-decoration: underline; text-underline-offset: 6px; }
+.contact-editorial .contact-link:hover, .contact-editorial .contact-link:focus-visible { transform: none; box-shadow: none; color: var(--color-accent); }
+.contact-editorial .contact-icon { font-size: 16px; }
+@media (max-width: 850px) {
+  .contact.contact-editorial { padding: 72px 28px 48px; }
+  .contact-editorial .contact-heading-row { align-items: flex-end; gap: 12px; }
+  .contact.contact-editorial h2 { font-size: clamp(2.6rem, 8vw, 4.5rem); }
+  .contact-editorial .contact-subtitle { margin: 28px 0 36px; }
+  .contact-editorial .contact-links { flex-direction: row; gap: 16px 28px; }
+}
+@media (max-width: 380px) {
+  .contact-editorial .contact-heading-row { flex-wrap: wrap; }
+}

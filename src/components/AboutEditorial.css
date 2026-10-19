@@ -1,0 +1,101 @@
+.about.about-editorial, .skills.skills-editorial { text-align: left; padding: clamp(64px, 9vw, 112px) 72px; }
+.about-editorial-inner { max-width: 1100px; margin: 0 auto; }
+.about-editorial-heading { margin-bottom: 48px; }
+.about-editorial .section-label { text-align: left; }
+.about-editorial h2#about-heading { font-family: Baskerville, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; font-size: clamp(2.8rem, 5.2vw, 4.6rem); line-height: 1.05; font-weight: 400; letter-spacing: -.04em; margin: 0; }
+.about-editorial-heading h2 span, .about-portrait-dot { color: var(--color-coral); }
+.about-editorial-profile { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(200px, .8fr); gap: clamp(40px, 7vw, 100px); align-items: start; margin-bottom: 80px; }
+.about-editorial-copy { max-width: 59ch; color: var(--color-muted); }
+.about-editorial-copy p { font-size: 1rem; line-height: 1.85; margin: 0 0 20px; }
+.about-editorial-copy .about-editorial-lead { font-family: Georgia, serif; color: var(--color-ink); font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.55; margin-bottom: 24px; }
+.about-portrait-placeholder { margin: 0; padding-top: 8px; }
+.about-portrait-space { aspect-ratio: 4 / 4.6; display: grid; place-items: center; border: 1px solid var(--color-border); background: var(--color-surface-soft); }
+.about-portrait-space > span { font-family: Baskerville, Georgia, serif; font-size: clamp(4rem, 7vw, 6rem); font-weight: 400; letter-spacing: -.06em; color: var(--color-ink); }
+.about-portrait-placeholder figcaption { font-size: .72rem; line-height: 1.6; color: var(--color-muted); padding-top: 14px; }
+.about-portrait-placeholder figcaption span { font-size: .68rem; }
+.about-editorial-row { display: grid; grid-template-columns: minmax(180px, .7fr) minmax(0, 1.6fr); gap: clamp(32px, 6vw, 80px); padding: 36px 0; border-top: 1px solid var(--color-border); }
+.about-row-label > span { display: block; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--color-muted); margin-bottom: 16px; }
+.about-row-label h3, .skills-editorial .about-row-label h2 { font-family: Baskerville, Georgia, serif; font-weight: 400; font-size: clamp(1.6rem, 2.7vw, 2.2rem); line-height: 1.15; letter-spacing: -.025em; color: var(--color-ink); margin: 0 0 18px; }
+.about-experience-placeholder { border-left: 2px solid var(--color-border); padding-left: 24px; }
+.about-experience-placeholder p { color: var(--color-muted); line-height: 1.8; font-size: .9rem; }
+.about-experience-placeholder .about-content-status { font-weight: 600; color: var(--color-ink); margin-bottom: 10px; }
+.about-education-records article + article { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--color-border); }
+.about-record-date { font-size: .75rem; color: var(--color-accent); margin-bottom: 10px; }
+.about-education-records h4 { color: var(--color-ink); font-size: 1rem; font-weight: 600; line-height: 1.5; margin: 0 0 8px; }
+.about-education-records article > p:last-child { color: var(--color-muted); font-size: .9rem; line-height: 1.7; }
+.skills-editorial .skills-editorial-row { border-top: 0; padding-top: 0; }
+.about-row-label > p { color: var(--color-muted); font-size: .85rem; line-height: 1.8; max-width: 27ch; }
+.about-beyond { display: grid; grid-template-columns: minmax(180px, .7fr) minmax(0, 1.6fr); gap: clamp(32px, 6vw, 80px); border-top: 1px solid var(--color-border); padding-top: 36px; margin-top: 32px; }
+.about-beyond .section-label { font-size: .65rem; }
+.about-beyond h3 { font-family: Georgia, serif; font-size: 1.35rem; font-weight: 400; line-height: 1.4; margin: 0; color: var(--color-ink); }
+.about-beyond p:not(.section-label) { font-size: .85rem; color: var(--color-muted); line-height: 1.8; }
+.about-beyond a { display: inline-block; margin-top: 14px; font-size: .8rem; color: var(--color-accent); text-underline-offset: 5px; }
+.about-beyond .about-personal-placeholder { margin-top: 20px; font-size: .75rem; }
+#experience { scroll-margin-top: 96px; }
+@media (max-width: 850px) {
+  .about.about-editorial, .skills.skills-editorial { padding: 64px 28px; }
+  .about-editorial-profile { grid-template-columns: 1fr; gap: 20px; margin-bottom: 48px; }
+  .about-portrait-placeholder { max-width: 340px; width: 100%; }
+  .about-portrait-space { aspect-ratio: 4 / 3; }
+  .about-editorial-row, .about-beyond { grid-template-columns: 1fr; gap: 18px; }
+  .about-row-label > p { max-width: 45ch; }
+}
+
+/* Round 2C: distinct compositions rather than repeated label/content rows. */
+@media (min-width: 851px) {
+  .about-editorial > .about-editorial-inner { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; }
+  .about-editorial-heading { grid-column: 1 / 8; margin-bottom: 0; }
+  .about-editorial-profile { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 24px; margin: -64px 0 112px; }
+  .about-editorial-copy { grid-column: 1 / 8; padding: 112px 40px 0 0; }
+  .about-portrait-placeholder { grid-column: 9 / 13; padding-top: 0; }
+  .about-experience, .about-education { grid-column: 1 / -1; }
+}
+.about-editorial .about-experience { display: block; padding: 40px 0 64px; }
+.about-experience .about-row-label { margin-bottom: 36px; }
+.about-experience-timeline { list-style: none; padding: 0; margin: 0; }
+.about-experience-timeline > li { display: grid; grid-template-columns: minmax(150px, .7fr) minmax(0, 1.6fr); gap: clamp(32px, 6vw, 80px); }
+.about-timeline-date { font-size: .75rem; line-height: 1.6; color: var(--color-muted); padding-top: 10px; }
+.about-timeline-entry { position: relative; border-left: 1px solid var(--color-border); padding: 8px 0 16px 28px; }
+.about-timeline-entry::before { content: ''; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--color-accent); left: -4px; top: 14px; }
+.about-timeline-entry h4 { font-family: Georgia, serif; font-size: 1.4rem; font-weight: 400; line-height: 1.4; margin: 0 0 8px; color: var(--color-ink); }
+.about-timeline-entry > p { font-size: .85rem; line-height: 1.8; color: var(--color-muted); max-width: 55ch; }
+.about-timeline-entry .about-timeline-employer { color: var(--color-ink); margin-bottom: 20px; }
+.about-editorial .about-education { display: block; padding-top: 36px; padding-bottom: 0; }
+.about-education .about-row-label { display: flex; gap: 24px; align-items: baseline; margin-bottom: 28px; }
+.about-education-records { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.about-education-records article { border-top: 1px solid var(--color-border); padding-top: 20px; }
+.about-education-records article + article { margin: 0; padding-top: 20px; }
+.skills-editorial .skills-editorial-row { display: block; }
+.skills-editorial .about-row-label { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px 28px; margin-bottom: 36px; }
+.skills-editorial .about-row-label > span { flex-basis: 100%; margin: 0; }
+.skills-editorial .about-row-label > p { max-width: 48ch; }
+.about-beyond { grid-template-columns: 1fr minmax(0, 1.35fr); margin-top: 48px; padding-top: 28px; }
+@media (max-width: 850px) {
+  .about-editorial .about-experience { padding-bottom: 48px; }
+  .about-experience-timeline > li { grid-template-columns: 1fr; gap: 14px; }
+  .about-education-records { grid-template-columns: 1fr; gap: 28px; }
+  .about-education .about-row-label { display: block; }
+  .about-beyond { grid-template-columns: 1fr; }
+}
+
+/* Round 2D: compact editorial Skills Index. */
+.skills-index { margin: 0; border-bottom: 1px solid var(--color-border); }
+.skills-index-row { display: grid; grid-template-columns: minmax(210px, .8fr) minmax(0, 2fr); gap: 24px; padding: 22px 0; border-top: 1px solid var(--color-border); }
+.skills-index dt { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; align-items: baseline; font-size: .9rem; font-weight: 600; line-height: 1.7; color: var(--color-ink); }
+.skills-index-number { font-size: .75rem; font-weight: 400; color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.skills-index dd { margin: 0; min-width: 0; }
+.skills-index ul { display: flex; flex-wrap: wrap; gap: 4px 0; list-style: none; padding: 0; margin: 0; }
+.skills-index li { font-size: .9rem; line-height: 1.8; color: var(--color-muted); overflow-wrap: anywhere; }
+.skills-index li:not(:last-child)::after { content: ' / '; display: inline-block; white-space: pre; padding: 0 10px; color: var(--color-muted); }
+@media (max-width: 850px) {
+  .skills-index-row { grid-template-columns: 1fr; gap: 10px; padding: 20px 0; }
+  .skills-index dd { padding-left: 44px; }
+}
+@media (max-width: 380px) {
+  .skills-index dd { padding-left: 0; }
+}
+
+/* Separate experience records without changing the open timeline composition. */
+.about-experience-timeline > li + li { margin-top: 32px; }
+
+.about-beyond[hidden], .about-portrait-placeholder figcaption[hidden] { display: none; }

@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import lottie from "lottie-web/build/player/lottie_light";
 import './App.css'
+import WorkShowcase from './components/WorkShowcase.jsx';
+import ProfessionalHero from './components/ProfessionalHero.jsx';
+import './components/VisualIdentity.css';
+import SiteNavigation from './components/SiteNavigation.jsx';
+import AboutEditorial from './components/AboutEditorial.jsx';
+import './components/ContactEditorial.css';
 import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
 
 function ConnectingMark() {
@@ -143,199 +149,16 @@ function App() {
 
   return (
     <div className="page">
-      <nav className="navbar">
-        <div className="logo">Joanna</div>
-        <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
+      <SiteNavigation />
 
       <main>
-      {/* Hero Section */}
-      <section className="hero">
-        <div className="hero-content">
-          <div className="hero-left">
-            <h1 className="hero-headline">
-              I build AI-powered products that make complex work feel more
-              manageable.
-            </h1>
-
-            <p className="description">
-              I work across full-stack engineering, applied AI, and analytics to
-              turn complicated systems into practical, user-centered products.
-            </p>
-
-            <div className="icons">
-              <a href="https://www.linkedin.com/in/jingqiao-lei/" target="_blank" rel="noreferrer">
-                <FaLinkedin />
-              </a>
-
-              <a href="mailto:leijingq@usc.edu">
-                <FaEnvelope />
-              </a>
-            </div>
-          </div>
-
-          <div className="hero-right">
-            <div className="hero-image">
-              <img src="/girl.webp" alt="Joanna" width="500" height="500" />
-            </div>
-
-            <h2 className="title">Joanna</h2>
-
-            <p className="subtitle">
-              Software Engineering · Applied AI · Data & Analytics
-            </p>
-          </div>
-        </div>
-
-        <a href="#about" className="scroll" aria-label="Scroll to About section">
-          ↓
-        </a>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="about">
-        <p className="section-label reveal">About</p>
-        <h2 className="reveal delay-1">Where engineering, data, and product thinking meet.</h2>
-
-        <div className="about-intro reveal delay-2">
-          <div className="profile-image">
-            JL
-          </div>
-
-          <div className="about-intro-text">
-            <p>
-              I’m a Computer Science graduate with a background in mathematics and
-              business, working across software engineering, applied AI, and
-              analytics. I use data to understand problems, identify where people
-              experience friction, and build practical tools that make complex
-              workflows clearer and easier to use. I’m especially interested in AI
-              that supports human judgment rather than replacing it, and in
-              creating systems that are thoughtful about the people using them.
-            </p>
-          </div>
-        </div>
-
-        <div className="about-grid">
-          <div className="about-card reveal delay-3">
-            <h3>Profile</h3>
-            <p>
-              I’m interested in software engineering and applied AI roles where I
-              can combine technical implementation, product thinking, and
-              data-informed decision making.
-            </p>
-
-            <div className="profile-info">
-              <span>Focus</span>
-              <p>
-                Full-stack applications, AI-assisted workflows, developer tools,
-                and accessible product experiences.
-              </p>
-
-              <span>Location</span>
-              <p>Seattle, WA</p>
-            </div>
-          </div>
-
-          <div className="about-card reveal delay-4">
-            <h3>Education</h3>
-
-            <div className="education-list">
-              <div>
-                <span>2023 – 2025</span>
-                <h4>University of Southern California</h4>
-                <p>M.S. in Computer Science</p>
-              </div>
-
-              <div>
-                <span>2019 – 2023</span>
-                <h4>University of California, San Diego</h4>
-                <p>B.S. in Applied Mathematics, Minor in Business Economics & Marketing</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Skills Section */}
-      <section id="skills" className="skills">
-        <p className="section-label reveal">Skills</p>
-        <h2 className="reveal delay-1">Technical Skills</h2>
-
-        <div className="skills-grid">
-          <div className="skills-category reveal">
-            <h3>Languages</h3>
-            <div className="project-tags">
-              <span>Python</span>
-              <span>Java</span>
-              <span>JavaScript</span>
-              <span>TypeScript</span>
-              <span>SQL</span>
-              <span>C++</span>
-              <span>Swift</span>
-            </div>
-          </div>
-
-          <div className="skills-category reveal">
-            <h3>Frameworks & Libraries</h3>
-            <div className="project-tags">
-              <span>React</span>
-              <span>Next.js</span>
-              <span>Spring Boot</span>
-              <span>React Router</span>
-              <span>Node.js</span>
-              <span>Express.js</span>
-              <span>Tailwind CSS</span>
-              <span>REST APIs</span>
-              <span>RAG</span>
-              <span>LLM API Integration</span>
-              <span>JUnit</span>
-            </div>
-          </div>
-
-          <div className="skills-category reveal">
-            <h3>Tools & Platforms</h3>
-            <div className="project-tags">
-              <span>Docker</span>
-              <span>PostgreSQL</span>
-              <span>Git / GitHub</span>
-              <span>Vite</span>
-              <span>Vercel</span>
-              <span>AWS</span>
-              <span>GCP</span>
-              <span>MongoDB</span>
-              <span>Postman</span>
-              <span>Redis</span>
-              <span>Xcode</span>
-              <span>Oracle</span>
-            </div>
-          </div>
-
-          <div className="skills-category reveal">
-            <h3>Data & Analytics</h3>
-            <div className="project-tags">
-              <span>Pandas</span>
-              <span>Matplotlib</span>
-              <span>Cohort Analysis</span>
-              <span>Data Visualization</span>
-              <span>A/B Testing</span>
-              <span>Excel</span>
-              <span>Power BI</span>
-              <span>Tableau</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ProfessionalHero />
 
       {/* Projects Section */}
       <section id="projects" className="projects">
-        <p className="section-label reveal">Projects</p>
-        <h2 className="reveal delay-1">Projects</h2>
-        <p className="projects-subtitle reveal delay-2">
+        <WorkShowcase />
+        <h2 id="all-projects" className="work-all-heading">All projects</h2>
+        <p className="projects-subtitle work-all-intro">
           Browse projects based on the role you're hiring for.
         </p>
 
@@ -446,7 +269,7 @@ function App() {
                 <div className="project-image">
                   <img
                     src="/career-forge.webp"
-                    alt="Career Forge screenshot"
+                    alt="CareerForge screenshot"
                     width="1200"
                     height="654"
                     loading="lazy"
@@ -455,7 +278,7 @@ function App() {
 
                 <div className="project-content">
                   <p className="project-category">Career Tool</p>
-                  <h4>Career Forge</h4>
+                  <h4>CareerForge</h4>
                   <p>
                     Helps job seekers walk into interviews prepared, with
                     AI-driven practice that adapts to the role they're going for.
@@ -494,9 +317,8 @@ function App() {
                   <p className="project-category">Backend System</p>
                   <h4>Distributed Task Queue</h4>
                   <p>
-                    Keeps background jobs running reliably at scale,
-                    automatically retrying failures instead of losing them
-                    silently.
+                    Processes priority-scheduled jobs across multiple workers,
+                    with automatic retries and dead-letter routing.
                   </p>
 
                   <div className="project-tags">
@@ -617,26 +439,26 @@ function App() {
         </div>
       </section>
 
-  
+      <AboutEditorial />
 
       {/* Contact Section */}
-      <section id="contact" className="contact">
-        <p className="section-label reveal">Contact</p>
-        <div className="contact-heading-row reveal delay-1">
-          <h2>Let’s connect.</h2>
+      <section id="contact" className="contact contact-editorial" aria-labelledby="contact-heading">
+        <p className="section-label">Contact / Next chapter</p>
+        <div className="contact-heading-row">
+          <h2 id="contact-heading">Let’s build<br />something useful.</h2>
           <ConnectingMark />
         </div>
-        <p className="contact-subtitle reveal delay-2">
-          Open to opportunities in data analytics, software engineering, and
-          digital media. Reach out — I'd love to hear from you.
+        <p className="contact-subtitle">
+          Have a software engineering opportunity or a project in mind?
+          I’d love to hear from you.
         </p>
 
-        <div className="contact-links reveal delay-3">
-          <a className="contact-link" href="mailto:leijingq@usc.edu">
+        <div className="contact-links">
+          <a className="contact-link" href="mailto:joannalei0907@gmail.com">
             <span className="contact-icon">
               <FaEnvelope />
             </span>
-            <span>Email</span>
+            <span>joannalei0907@gmail.com</span>
           </a>
 
           <a
