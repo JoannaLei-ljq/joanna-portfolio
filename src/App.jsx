@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import lottie from "lottie-web/build/player/lottie_light";
 import './App.css'
 import { FaLinkedin, FaEnvelope, FaGithub } from "react-icons/fa";
+import { Analytics } from "@vercel/analytics/react";
 
 function ConnectingMark() {
   const containerRef = useRef(null);
@@ -665,6 +666,7 @@ function App() {
         </div>
       </section>
       </main>
+      <Analytics />
     </div>
   )
 }
