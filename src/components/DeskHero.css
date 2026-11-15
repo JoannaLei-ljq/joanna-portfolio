@@ -49,17 +49,23 @@
 .desk-socials a:hover { color: var(--desk-choc); }
 .desk-hero :is(a, button):focus-visible { outline: 3px solid var(--desk-choc); outline-offset: 3px; }
 
-/* ID badge — the lanyard stays put; only the card swings, from the clip.
+/* ID badge — a short pastel lanyard and a small silver clasp, kept flat and light.
    Shadows are box-shadows (not filters) so the motion stays smooth. */
 .desk-badge { position: absolute; left: 0; top: 0; z-index: 3; width: clamp(150px, 23vw, 228px); transform: rotate(-6deg); transform-origin: 50% 0; }
-.desk-lanyard { position: absolute; bottom: calc(100% - 4px); left: 50%; width: 22px; height: 900px; margin-left: -11px; border-radius: 2px; background: repeating-linear-gradient(0deg, transparent 0 6px, rgba(255, 255, 255, .07) 6px 7px), linear-gradient(90deg, #15223a 0 3px, #22355a 3px 19px, #15223a 19px); box-shadow: 0 6px 10px rgba(28, 43, 69, .25); }
-.desk-badge-swing { transform-origin: 50% 0; }
-.desk-badge-clip { position: relative; z-index: 2; width: 34px; height: 26px; margin: 0 auto -10px; border-radius: 6px 6px 3px 3px; background: linear-gradient(90deg, #aab4c2, #eef1f5 45%, #b5bfcc); box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .12), 0 2px 3px rgba(28, 43, 69, .3); }
-.desk-badge-clip span { position: absolute; left: 50%; bottom: -8px; width: 10px; height: 14px; margin-left: -5px; border-radius: 0 0 3px 3px; background: linear-gradient(90deg, #9aa5b5, #e3e7ed, #9aa5b5); }
-.desk-badge-card { position: relative; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 1px rgba(28, 43, 69, .06), 0 16px 26px rgba(28, 43, 69, .28), 0 3px 6px rgba(28, 43, 69, .12); }
+.desk-lanyard { position: absolute; z-index: 0; left: 50%; bottom: calc(100% - 8px); width: 22px; height: 130px; margin-left: -11px; border-radius: 3px; background: linear-gradient(90deg, #8eaed6 0 3px, #fbfaf6 3px 19px, #8eaed6 19px); box-shadow: 0 4px 8px rgba(28, 43, 69, .12); transform: rotate(7deg); transform-origin: 50% 100%; -webkit-mask-image: linear-gradient(transparent, #000 40%); mask-image: linear-gradient(transparent, #000 40%); }
+.desk-lanyard::after { content: ''; position: absolute; top: 0; bottom: 4px; left: 50%; width: 0; margin-left: -.75px; border-left: 1.5px dashed rgba(127, 163, 207, .7); }
+.desk-clasp { position: relative; z-index: 2; display: block; width: 30px; height: 48px; margin: -42px auto -8px; overflow: visible; filter: drop-shadow(0 2px 2px rgba(28, 43, 69, .2)); }
+.desk-clasp rect, .desk-clasp path, .desk-clasp circle { fill: #eef1f5; stroke: #a7b1bf; stroke-width: 2; }
+.desk-clasp circle { fill: none; stroke-width: 2.5; }
+.desk-clasp-gate { fill: none !important; stroke: #c3cad4 !important; stroke-linecap: round; }
+.desk-badge-swing { position: relative; transform-origin: 50% 0; transition: transform .45s cubic-bezier(.2, .8, .3, 1); }
+.desk-badge:hover .desk-badge-swing { transform: translateY(-5px) rotate(2deg); }
+.desk-badge-card { transition: box-shadow .45s ease; }
+.desk-badge:hover .desk-badge-card { box-shadow: 0 0 0 5px rgba(207, 224, 245, .75), 0 0 0 6px rgba(127, 163, 207, .35), 0 26px 36px rgba(28, 43, 69, .26), 0 4px 8px rgba(28, 43, 69, .1); }
+.desk-badge-card { position: relative; z-index: 1; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 5px rgba(207, 224, 245, .75), 0 0 0 6px rgba(127, 163, 207, .35), 0 16px 26px rgba(28, 43, 69, .22), 0 3px 6px rgba(28, 43, 69, .1); }
 .desk-badge-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(125deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, 0) 32%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, .25) 100%); pointer-events: none; }
-.desk-badge-head { position: relative; display: flex; align-items: center; justify-content: flex-end; height: 34px; padding: 0 12px; background: var(--desk-navy); color: #c9d6ea; font: 600 .56rem var(--desk-mono); letter-spacing: .14em; }
-.desk-badge-slot { position: absolute; left: 50%; top: 9px; width: 40px; height: 8px; margin-left: -20px; border-radius: 99px; background: #0f1a2d; box-shadow: inset 0 1px 2px rgba(0, 0, 0, .5); }
+.desk-badge-head { position: relative; display: flex; align-items: center; justify-content: flex-end; height: 34px; padding: 0 12px; background: #dbe7f5; color: #4a6c9b; font: 600 .56rem var(--desk-mono); letter-spacing: .14em; }
+.desk-badge-slot { position: absolute; left: 50%; top: 9px; width: 40px; height: 8px; margin-left: -20px; border-radius: 99px; background: #f7f9fc; box-shadow: inset 0 1px 2px rgba(28, 43, 69, .25); }
 .desk-badge-head span:last-child { margin-top: 10px; }
 .desk-badge-body { padding: 12px 14px 14px; }
 .desk-badge-photo { overflow: hidden; aspect-ratio: 1; border-radius: 8px; background: var(--desk-cream); }
@@ -75,36 +81,30 @@
 .desk-sticky-status { right: -8px; top: 6px; background: #fff3a6; transform: rotate(5deg); }
 .desk-sticky-now { right: 6%; bottom: 8px; width: 200px; background: #fff; transform: rotate(-3deg); }
 .desk-sticky-now::before { content: ''; position: absolute; top: -10px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(216, 232, 90, .85); transform: rotate(-2deg); }
-.desk-mug { position: absolute; left: clamp(20px, 6vw, 80px); bottom: 0; z-index: 3; width: clamp(64px, 9vw, 92px); aspect-ratio: 1; border-radius: 50%; background: #fff; box-shadow: 0 10px 14px rgba(28, 43, 69, .3), inset 0 0 0 9px #fff, inset 0 0 0 80px #6b4330; }
-.desk-mug::after { content: ''; position: absolute; right: -24%; top: 34%; width: 34%; height: 30%; border: 8px solid #fff; border-left: 0; border-radius: 0 40px 40px 0; }
+.desk-mug { position: absolute; left: clamp(10px, 5vw, 70px); bottom: -14px; z-index: 3; width: clamp(96px, 12vw, 132px); height: auto; overflow: visible; filter: drop-shadow(0 8px 10px rgba(28, 43, 69, .2)); transform: rotate(-8deg); }
+.desk-mug-saucer { fill: #fbfbf9; stroke: #e4e7ec; stroke-width: 1.5; }
+.desk-mug-handle { fill: none; stroke: #fff; stroke-width: 11; stroke-linecap: round; }
+.desk-mug-rim { fill: #fff; stroke: #e6e9ee; stroke-width: 1.5; }
+.desk-mug-coffee { fill: #a9744f; }
+.desk-mug-crema { fill: #d6a97e; }
+.desk-mug-art { fill: #f6e7d3; }
+.desk-mug-shine { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 3; stroke-linecap: round; }
 
 .desk-sr-only, .hero-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
   .desk-folder { animation: deskIn .6s cubic-bezier(.2, .7, .3, 1) both; }
   .desk-badge { animation: deskDrop .8s cubic-bezier(.2, .8, .3, 1) .1s both; }
-  .desk-badge-swing { animation: badgeIdle 6s ease-in-out 1s infinite; will-change: transform; }
-  .desk-badge:hover .desk-badge-swing { animation: badgeSwing 1.4s ease-out; }
   .desk-sticky, .desk-mug { animation: deskPop .4s cubic-bezier(.2, .8, .3, 1.2) .45s both; }
 }
 @keyframes deskIn { from { opacity: 0; translate: 0 24px; } }
 @keyframes deskDrop { from { opacity: 0; translate: 0 -60px; } }
 @keyframes deskPop { from { opacity: 0; scale: .92; } }
-@keyframes badgeIdle { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(1.6deg); } }
-@keyframes badgeSwing {
-  0% { transform: rotate(0deg); }
-  18% { transform: rotate(9deg); }
-  40% { transform: rotate(-5deg); }
-  60% { transform: rotate(2.5deg); }
-  80% { transform: rotate(-1deg); }
-  100% { transform: rotate(0deg); }
-}
-
 @media (max-width: 720px) {
   .desk-hero { min-height: 0; }
   .desk { padding: 150px 0 86px; }
   .desk-tab { display: none; }
-  .desk-lanyard { height: 70px; -webkit-mask-image: linear-gradient(transparent, #000 60%); mask-image: linear-gradient(transparent, #000 60%); }
+  .desk-lanyard { height: 80px; }
   .desk-sheet { padding: 170px 22px 30px; }
   .desk-badge { left: 12px; width: 150px; }
   .desk-sticky-status { top: 64px; right: 0; }

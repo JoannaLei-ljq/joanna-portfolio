@@ -40,9 +40,13 @@
   .kb-readout { position: sticky; bottom: 1em; z-index: 3; min-height: 0; padding: 1.4em 1.3em 1.1em; transform: none; }
 }
 @media (max-width: 640px) {
-  .kb-board { padding: .9em; transform: none; }
-  .kb-mod { flex-basis: 100%; min-height: 2.2em; }
-  .kb-key { font-size: .76em; padding: .5em .7em; }
+  .kb-heading { margin-bottom: 1.4em; }
+  .kb-lede { font-size: .92em; }
+  .kb-board { gap: .4em; padding: .8em; transform: none; }
+  .kb-row { gap: .4em; }
+  .kb-mod { flex-basis: 100%; min-height: 1.9em; font-size: .62em; }
+  .kb-key { min-height: 2.5em; font-size: .72em; padding: .4em .6em; }
+  .kb-row-space { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .kb * { transition: none !important; }

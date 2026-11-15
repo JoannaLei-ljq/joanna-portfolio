@@ -31,9 +31,15 @@ export default function DeskHero() {
     <section className="desk-hero" aria-labelledby="hero-title">
       <div className="desk" ref={deskRef}>
         <div className="desk-badge" aria-hidden="true">
-          <div className="desk-lanyard" />
           <div className="desk-badge-swing">
-            <div className="desk-badge-clip"><span /></div>
+            <div className="desk-lanyard" />
+            <svg className="desk-clasp" viewBox="0 0 40 64" focusable="false">
+              <rect x="9" y="2" width="22" height="10" rx="3" />
+              <rect x="17" y="11" width="6" height="8" rx="2" />
+              <path d="M20 19c-8 0-12 6-12 13v8c0 9 5 15 12 15s12-6 12-15v-8c0-7-4-13-12-13z" />
+              <path className="desk-clasp-gate" d="M26 30v10" />
+              <circle cx="20" cy="58" r="5" />
+            </svg>
             <div className="desk-badge-card">
               <div className="desk-badge-head">
                 <span className="desk-badge-slot" />
@@ -97,7 +103,16 @@ export default function DeskHero() {
         <p className="desk-sticky desk-sticky-now">
           <small>currently</small>Fullstack intern @ fAIshion
         </p>
-        <div className="desk-mug" aria-hidden="true" />
+        {/* Top-down latte on a saucer. */}
+        <svg className="desk-mug" viewBox="0 0 140 120" aria-hidden="true" focusable="false">
+          <ellipse cx="64" cy="66" rx="54" ry="50" className="desk-mug-saucer" />
+          <path d="M104 52c14-2 24 6 24 16s-10 18-24 16" className="desk-mug-handle" />
+          <circle cx="64" cy="62" r="40" className="desk-mug-rim" />
+          <circle cx="64" cy="62" r="32" className="desk-mug-coffee" />
+          <circle cx="64" cy="62" r="25" className="desk-mug-crema" />
+          <path d="M64 76c-9-6-14-11-14-17 0-4 3-7 7-7 3 0 5 2 7 4 2-2 4-4 7-4 4 0 7 3 7 7 0 6-5 11-14 17z" className="desk-mug-art" />
+          <path d="M40 44a32 32 0 0 1 18-12" className="desk-mug-shine" />
+        </svg>
       </div>
     </section>
   );

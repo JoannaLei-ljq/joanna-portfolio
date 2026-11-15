@@ -65,9 +65,13 @@
   .ab-term, .ab-edu { margin: 0; }
 }
 @media (max-width: 640px) {
-  .ab-main-body { grid-template-columns: 1fr; gap: 1.4em; padding: 1.8em 1.4em 2em; }
-  .ab-avatar { width: 6.5em; }
-  .ab-main h2 { font-size: 2.4em; }
+  .ab-main-body { grid-template-columns: 4.2em 1fr; gap: 1em; padding: 1.4em 1.1em 1.5em; }
+  .ab-avatar { width: 4.2em; }
+  .ab-main h2 { font-size: 1.9em; }
+  .ab-lead { font-size: 1.12em; margin: .7em 0 .6em; }
+  .ab-main-body p:not([class]) { font-size: .92em; }
+  .ab-term-body { padding: 1em 1.1em 1.2em; font-size: .78em; }
+  .ab-desktop { gap: 1em 0; }
   .ab-files thead { display: none; }
   .ab-files, .ab-files tbody, .ab-files tr, .ab-files tbody th, .ab-files td { display: block; }
   .ab-files tbody tr { padding: 1em 1.2em; border-bottom: 1px solid #eef1f4; }

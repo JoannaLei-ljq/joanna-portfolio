@@ -19,7 +19,7 @@ const education = [
   {
     folder: 'ucsd/',
     school: 'University of California, San Diego',
-    degree: 'B.S. Applied Mathematics · Minor in Business Economics & Marketing',
+    degree: 'B.S. Applied Mathematics · Minors in Business Economics and Marketing',
     date: '2019 – 2023',
   },
 ];

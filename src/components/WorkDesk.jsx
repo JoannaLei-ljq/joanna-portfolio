@@ -7,9 +7,17 @@ const featured = [
     name: 'CareerForge',
     discipline: 'Applied AI / Full stack',
     description:
-      "Helps job seekers walk into interviews prepared, with AI-driven practice that adapts to the role they're going for.",
-    stack: ['Next.js', 'TypeScript', 'Vercel AI SDK', 'Tailwind CSS'],
-    image: { src: '/career-forge.webp', width: 1200, height: 654 },
+      'AI interview prep in one place: paste a resume and a target role to get feedback, STAR-formatted talking points, predicted questions, and a live mock interview.',
+    highlights: [
+      ['Built', 'Four tools with mode-specific prompts; an optional job description tailors every answer to one posting.'],
+      ['Fast', 'Responses stream token by token (Vercel AI SDK streamText + useChat) instead of waiting on a full reply.'],
+      ['Safe', 'Per-IP rate limiting protects the API key on the public demo; the model is configurable via OpenRouter.'],
+    ],
+    stack: ['Next.js', 'TypeScript', 'Vercel AI SDK', 'Tailwind CSS', 'shadcn/ui'],
+    images: [
+      { src: '/career-forge-overview.webp', width: 1200, height: 780, label: 'Overview', alt: 'CareerForge home screen with its four tools: Resume Analysis, STAR Rewrite, Question Prediction, Mock Interview' },
+      { src: '/career-forge-star.webp', width: 1200, height: 780, label: 'STAR Rewrite', alt: 'CareerForge STAR Rewrite tool turning a work story into Situation, Task, Action, Result' },
+    ],
     demo: 'https://career-forge-ochre.vercel.app/',
     github: 'https://github.com/JoannaLei-ljq/career-forge',
   },
@@ -18,8 +26,13 @@ const featured = [
     name: 'Distributed Task Queue',
     discipline: 'Backend engineering',
     description:
-      'Processes priority-scheduled jobs across multiple workers, with automatic retries and dead-letter routing.',
-    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+      'A job queue built from scratch to understand what keeps slow, flaky work (like LLM calls) reliable: priority scheduling, safe concurrent claiming, retries, and dead-letter routing.',
+    highlights: [
+      ['Safe', 'Workers claim jobs with SELECT … FOR UPDATE SKIP LOCKED, so no job is processed twice — Postgres is both queue and coordinator.'],
+      ['Resilient', 'Lock leases recover jobs from crashed workers; failures retry with exponential backoff, then go to a dead-letter queue.'],
+      ['Debugged', 'Split claim and finish into separate transactions after READ COMMITTED hid the RUNNING state from other connections.'],
+    ],
+    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker', 'React'],
     github: 'https://github.com/JoannaLei-ljq/distributed-task-queue',
   },
   {
@@ -27,9 +40,14 @@ const featured = [
     name: 'Focus Gacha',
     discipline: 'Interactive frontend',
     description:
-      'Turns the paralysis of choosing a task into a quick, playful pull of the handle, then keeps you accountable with a five-minute timer.',
+      'A task picker for when deciding what to do is harder than doing it: pull the handle, get one task, and commit to five minutes.',
+    highlights: [
+      ['Built', 'Hand-drawn SVG machine with a from-scratch 2D physics loop — capsules fall, bounce, and settle like real ones.'],
+      ['Designed', '“Done” stays locked until the five-minute timer finishes; then it turns into an overtime stopwatch.'],
+      ['Shipped', 'Stats, achievements, and history persist in localStorage; auto-deploys to Vercel on every push.'],
+    ],
     stack: ['React', 'Vite', 'SVG / Physics', 'Web Audio API'],
-    image: { src: '/focus-gacha.webp', width: 1200, height: 654 },
+    images: [{ src: '/focus-gacha.webp', width: 1200, height: 654, alt: 'Focus Gacha capsule machine with the task timer' }],
     demo: 'https://focus-gacha.vercel.app/',
     github: 'https://github.com/JoannaLei-ljq/focus-gacha',
   },
@@ -51,9 +69,9 @@ const drawer = [
   },
   {
     name: 'Brazilian E-commerce Analytics',
-    category: 'Data analytics',
+    category: 'Data analytics · team project',
     description:
-      'Uncovers where a Brazilian e-commerce business loses revenue after the first purchase, pointing to retention as the real growth lever.',
+      'SQL + pandas analysis of ~100k Olist orders: a 3.12% repeat-purchase rate and a November revenue peak pointed to retention as the growth lever.',
     stack: 'SQL · Python · Pandas · Matplotlib',
     github: 'https://github.com/x6zeng/brazilian-ecommerce-analytics',
   },
@@ -61,16 +79,55 @@ const drawer = [
     name: 'Customer Retention & Cohort Analysis',
     category: 'Data analytics',
     description:
-      'Shows exactly when and why customers stop coming back after their first purchase, so retention efforts can target the moment that matters most.',
+      'Cohort analysis of UK online-retail transactions: tracks acquisition, month-by-month retention, and revenue per cohort to show when customers drop off.',
     stack: 'Python · Pandas · Cohort analysis',
     github: 'https://github.com/JoannaLei-ljq/customer-retention-cohort-analysis',
   },
 ];
 
 // Stands in for a screenshot: the queue has no UI, so show how jobs flow.
+// One or more screenshots, stacked like photos. With two or more, small
+// labels underneath bring a different one to the front.
+function ProjectPhotos({ images }) {
+  const [front, setFront] = useState(0);
+  const many = images.length > 1;
+
+  return (
+    <div className={`wd-photos${many ? ' is-stack' : ''}`}>
+      <div className="wd-photo-stack">
+        {images.map((image, index) => (
+          <figure
+            key={image.src}
+            className={`wd-photo${index === front ? ' is-front' : ' is-back'}`}
+            aria-hidden={index === front ? undefined : true}
+            onClick={index === front ? undefined : () => setFront(index)}
+          >
+            <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
+          </figure>
+        ))}
+      </div>
+      {many && (
+        <div className="wd-shot-tabs" role="group" aria-label="Screenshots">
+          {images.map((image, index) => (
+            <button
+              key={image.src}
+              type="button"
+              className={index === front ? 'is-active' : ''}
+              aria-pressed={index === front}
+              onClick={() => setFront(index)}
+            >
+              {image.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function QueueDiagram() {
   return (
-    <svg className="wd-diagram" viewBox="0 0 600 327" role="img" aria-label="Diagram: producers add jobs to a priority queue in PostgreSQL; several workers process them; failed jobs are retried and, after repeated failures, routed to a dead-letter queue.">
+    <svg className="wd-diagram" viewBox="0 0 600 327" role="img" aria-label="Diagram: a REST API adds jobs to a priority queue in PostgreSQL; three workers claim them with SELECT FOR UPDATE SKIP LOCKED; failed jobs retry with exponential backoff and, after the retry limit, go to a dead-letter queue.">
       <defs>
         <marker id="wd-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M0 0 10 5 0 10z" fill="#1c2b45" />
@@ -96,7 +153,8 @@ function QueueDiagram() {
           <path d="M263 238V172" strokeDasharray="5 4" />
           <path d="M338 276H394" strokeDasharray="5 4" />
         </g>
-        <text x="82" y="128">Producers</text>
+        <text x="82" y="120">REST API</text>
+        <text x="82" y="137" fontSize="10">POST /jobs</text>
         <text x="263" y="112" fontWeight="600">Priority queue</text>
         <text x="263" y="132" fontSize="11">PostgreSQL</text>
         <g fill="#fff" stroke="#1c2b45" strokeWidth="1.2">
@@ -108,9 +166,11 @@ function QueueDiagram() {
         <text x="447" y="64">Worker 1</text>
         <text x="447" y="128">Worker 2</text>
         <text x="447" y="192">Worker 3</text>
-        <text x="263" y="267" fontWeight="600">Retry</text>
+        <text x="263" y="259" fontWeight="600">Retry</text>
+        <text x="263" y="276" fontSize="10">exp. backoff</text>
         <text x="486" y="275" fontWeight="600">Dead-letter queue</text>
         <text x="480" y="226" fontSize="11" textAnchor="start">on failure</text>
+        <text x="366" y="36" fontSize="10">SKIP LOCKED</text>
         <text x="366" y="302" fontSize="11">gives up</text>
         <text x="547" y="128" fontSize="11">→ done ✓</text>
       </g>
@@ -120,6 +180,7 @@ function QueueDiagram() {
 
 export default function WorkDesk() {
   const [active, setActive] = useState(0);
+  const [detailsOpen, setDetailsOpen] = useState(false);
   const tabs = useRef([]);
   const project = featured[active];
 
@@ -157,7 +218,7 @@ export default function WorkDesk() {
               aria-controls="wd-panel"
               tabIndex={active === index ? 0 : -1}
               className={`wd-tab wd-tone-${index + 1}${active === index ? ' is-active' : ''}`}
-              onClick={() => setActive(index)}
+              onClick={() => { setActive(index); setDetailsOpen(false); }}
             >
               <span className="wd-tab-number">0{index + 1}</span>
               {item.name}
@@ -167,13 +228,17 @@ export default function WorkDesk() {
 
         <div className={`wd-folder wd-tone-${active + 1}`} role="tabpanel" id="wd-panel" aria-labelledby={`wd-tab-${project.slug}`}>
           <article className="wd-sheet" key={project.slug}>
-            <div className="wd-photo">
-              {project.image ? (
-                <img src={project.image.src} alt={`${project.name} screenshot`} width={project.image.width} height={project.image.height} loading="lazy" />
-              ) : (
-                <QueueDiagram />
-              )}
-            </div>
+            {project.images ? (
+              <ProjectPhotos images={project.images} />
+            ) : (
+              <div className="wd-photos">
+                <div className="wd-photo-stack">
+                  <figure className="wd-photo is-front">
+                    <QueueDiagram />
+                  </figure>
+                </div>
+              </div>
+            )}
             <div className="wd-info">
               <p className="wd-meta">
                 <span>{project.discipline}</span>
@@ -181,6 +246,23 @@ export default function WorkDesk() {
               </p>
               <h3>{project.name}</h3>
               <p className="wd-description">{project.description}</p>
+              <button
+                type="button"
+                className="wd-more"
+                aria-expanded={detailsOpen}
+                aria-controls="wd-highlights"
+                onClick={() => setDetailsOpen(!detailsOpen)}
+              >
+                {detailsOpen ? 'Hide build notes' : 'How it’s built'} <span aria-hidden="true">{detailsOpen ? '−' : '+'}</span>
+              </button>
+              <dl className={`wd-highlights${detailsOpen ? ' is-open' : ''}`} id="wd-highlights">
+                {project.highlights.map(([label, text]) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{text}</dd>
+                  </div>
+                ))}
+              </dl>
               <ul className="wd-stack" aria-label={`${project.name} technologies`}>
                 {project.stack.map((tech) => (
                   <li key={tech}>{tech}</li>
@@ -194,7 +276,7 @@ export default function WorkDesk() {
                   </a>
                 )}
                 <a className={`wd-btn${project.demo ? '' : ' wd-btn-main'}`} href={project.github} target="_blank" rel="noreferrer">
-                  GitHub <span aria-hidden="true">↗</span>
+                  {project.demo ? 'GitHub' : 'Read the build notes'} <span aria-hidden="true">↗</span>
                   <span className="hero-sr-only"> (opens in a new tab)</span>
                 </a>
               </div>

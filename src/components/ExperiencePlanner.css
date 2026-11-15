@@ -2,9 +2,9 @@
    is clipped to it. Index tabs on the right always list every role. */
 .xp-heading { margin-bottom: 2.4em; }
 .xp .ds-eyebrow { color: var(--ds-ink); opacity: .75; }
-.xp-tone-1 { --xp-tone: #a9c4e4; --xp-tone-deep: #4f74a6; }
-.xp-tone-2 { --xp-tone: #fbe9a0; --xp-tone-deep: #8a6a12; }
-.xp-tone-3 { --xp-tone: #dbe88a; --xp-tone-deep: #5b6b12; }
+.xp-tone-1 { --xp-tone: #a9c4e4; --xp-on: #1c2b45; }
+.xp-tone-2 { --xp-tone: #fbe9a0; --xp-on: #1c2b45; }
+.xp-tone-3 { --xp-tone: #dbe88a; --xp-on: #1c2b45; }
 
 .xp-layout { display: grid; grid-template-columns: 1fr 18em; gap: 0; align-items: start; }
 
@@ -19,10 +19,10 @@
   transform-origin: 50% 0;
 }
 .xp-page::before { content: ''; position: absolute; top: .55em; left: 6%; right: 6%; height: .5em; background: radial-gradient(circle, #8da7c7 0 .2em, transparent .22em) 0 0 / calc(100% / 13.6) 100% repeat-x; opacity: .6; }
-.xp-date-block { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1em; margin: 2em 0 1.6em 1.6em; border-radius: .4em; background: var(--xp-tone); color: var(--ds-ink); text-align: center; transition: background-color .3s ease; }
-.xp-date-month { font: 600 1.1em var(--ds-mono); letter-spacing: .14em; text-transform: uppercase; }
+.xp-date-block { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1em; margin: 2em 0 1.6em 1.6em; border: 1px solid #e3ddd0; border-radius: .4em; background: #fff; color: var(--ds-ink); text-align: center; box-shadow: inset 0 -.35em 0 #f1ede4; }
+.xp-date-month { font: 600 1.1em var(--ds-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--ds-choc); }
 .xp-date-year { font: 600 3.6em / 1 var(--ds-serif); letter-spacing: -.03em; }
-.xp-date-end { margin-top: .5em; font: 700 1.25em var(--ds-hand); }
+.xp-date-end { margin-top: .5em; font: 700 1.25em var(--ds-hand); color: #4a6c9b; }
 .xp-page-body { padding: 2.6em 11.5em 2.4em 2.2em; }
 .xp-range { margin: 0 0 .7em; font: 600 .72em var(--ds-mono); letter-spacing: .08em; text-transform: uppercase; color: #4a6c9b; }
 .desk-section .xp-page h3 { margin: 0; font: 600 2em / 1.1 var(--ds-serif); letter-spacing: -.02em; color: var(--ds-ink); }
@@ -33,7 +33,7 @@
 .xp-badge { position: absolute; top: 2.2em; right: 1.8em; width: 7.4em; transform: rotate(4deg); transform-origin: 50% 0; }
 .xp-badge-clip { position: relative; z-index: 2; display: block; width: 2.6em; height: 1.3em; margin: 0 auto -.5em; border-radius: .3em .3em .15em .15em; background: linear-gradient(90deg, #2a3449, #56627a 50%, #2a3449); box-shadow: 0 .15em .25em rgba(0, 0, 0, .3); }
 .xp-badge-card { display: grid; justify-items: center; gap: .35em; padding: 1.1em .7em .9em; border-radius: .6em; background: #fff; text-align: center; box-shadow: 0 0 0 1px rgba(28, 43, 69, .06), 0 .7em 1.1em rgba(28, 43, 69, .22); }
-.xp-badge-initial { display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: .45em; background: var(--xp-tone); font: 600 1.25em var(--ds-serif); color: var(--ds-ink); transition: background-color .3s ease; }
+.xp-badge-initial { display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: .45em; background: var(--xp-tone); font: 600 1.25em var(--ds-serif); color: var(--xp-on); transition: background-color .3s ease; }
 .xp-badge-company { font: 700 .72em / 1.2 var(--ds-sans); color: var(--ds-ink); }
 .xp-badge-role { font: 500 .56em / 1.3 var(--ds-mono); letter-spacing: .04em; text-transform: uppercase; color: #6b778a; }
 .xp-badge-current { margin-top: .15em; padding: .15em .6em; border-radius: 99em; background: var(--ds-ink); color: #fff; font: 600 .52em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; }
@@ -64,15 +64,24 @@
   .xp-tab:hover, .xp-tab.is-active { transform: none; }
 }
 @media (max-width: 640px) {
-  .xp-tabs { grid-template-columns: 1fr; }
-  .xp-tab-role { display: none; }
+  .xp-heading { margin-bottom: 1.4em; }
+  .xp-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4em; }
+  .xp-tab { padding: .6em .55em .6em .9em; }
+  .xp-tab-range, .xp-tab-role { display: none; }
+  .xp-tab-company { font-size: .82em; line-height: 1.2; }
   .xp-page { grid-template-columns: 1fr; min-height: 0; }
-  .xp-date-block { flex-direction: row; gap: .6em; justify-content: flex-start; margin: 2.2em 1.2em 0; padding: .6em 1em; }
-  .xp-date-year { font-size: 1.6em; }
-  .xp-date-end { margin: 0 0 0 auto; }
-  .xp-page-body { padding: 1.4em 1.3em 1.8em; }
-  .xp-badge { position: relative; top: auto; right: auto; margin: 0 0 1.6em 1.3em; transform: rotate(-3deg); }
-  .desk-section .xp-page h3 { font-size: 1.7em; }
+  .xp-date-block { flex-direction: row; align-items: baseline; gap: .5em; justify-content: flex-start; margin: 2.1em 7.2em 0 1.1em; padding: .55em .8em; }
+  .xp-date-month { font-size: .9em; }
+  .xp-date-year { font-size: 1.5em; }
+  .xp-date-end { margin: 0 0 0 auto; font-size: 1.05em; }
+  .xp-page-body { padding: 1.1em 1.1em 1.5em; }
+  .xp-range { display: none; }
+  .xp-badge { top: 1.5em; right: .9em; width: 4.6em; }
+  .xp-badge-role, .xp-badge-company { display: none; }
+  .xp-badge-card { padding: .9em .5em .7em; }
+  .desk-section .xp-page h3, .xp-employer { padding-right: 4.2em; }
+  .xp-description { font-size: .95em; }
+  .desk-section .xp-page h3 { font-size: 1.55em; }
 }
 @media (prefers-reduced-motion: reduce) {
   .xp * { transition: none !important; }
