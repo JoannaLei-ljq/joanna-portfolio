@@ -1,0 +1,44 @@
+/* Experience + About — same desk language as the hero and work sections.
+   Sized in em; font-size on .desk-section is fluid so everything scales. */
+.desk-section {
+  --ds-ink: #1c2b45;
+  --ds-muted: #4a586e;
+  --ds-paper: #f7f5f0;
+  --ds-cream: #fbf5e6;
+  --ds-blue: #a9c4e4;
+  --ds-blue-deep: #4a6c9b; /* text-safe on paper (≥4.5:1) */
+  --ds-butter: #fbe9a0;
+  --ds-lime: #d8e85a;
+  --ds-choc: #5a3424;
+  --ds-serif: 'Fraunces', Baskerville, Georgia, serif;
+  --ds-sans: 'DM Sans', 'Avenir Next', system-ui, sans-serif;
+  --ds-hand: 'Caveat', 'Bradley Hand', cursive;
+  --ds-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  font-size: clamp(16px, 1.12vw, 34px);
+  font-family: var(--ds-sans);
+  color: var(--ds-ink);
+  padding: 6em 1.5em 6.5em;
+  text-align: left;
+  border: 0;
+  scroll-margin-top: 72px;
+}
+.ds-inner { max-width: 68em; margin: 0 auto; }
+.ds-eyebrow { margin: 0 0 .9em; font: 600 .72em var(--ds-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ds-blue-deep); }
+.desk-section h2 { margin: 0; font: 600 3.4em / 1 var(--ds-serif); letter-spacing: -.03em; color: var(--ds-ink); }
+.desk-section h2 i { font-weight: 400; }
+.desk-section h2 em { font-style: normal; color: var(--ds-choc); }
+.ds-hint { margin: .9em 0 0; font: 700 1.5em var(--ds-hand); transform: rotate(-3deg); transform-origin: left; }
+
+/* Experience — paper slips on the blue desk */
+.xp {
+  background-color: var(--ds-blue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+@media (max-width: 860px) {
+  .desk-section { padding: 4em 1.1em 4.5em; }
+  .desk-section h2 { font-size: 2.6em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-section * { transition: none !important; }
+}

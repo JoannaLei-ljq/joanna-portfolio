@@ -33,3 +33,25 @@
 @media (prefers-reduced-motion: reduce) {
   .site-header, .site-header *, .site-header *::after { transition: none !important; }
 }
+
+/* Desk theme: same type and paper as the rest of the page, sized in em so the
+   header grows with the window. --header-h is shared with the hero. */
+:root { --header-h: clamp(72px, 4.4vw, 124px); }
+.site-header { box-sizing: border-box; height: var(--header-h); min-height: 0; padding: 0 clamp(24px, 3.4vw, 110px); font-size: clamp(16px, 1.12vw, 34px); font-family: 'DM Sans', 'Avenir Next', system-ui, sans-serif; background: #f7f5f0; }
+.site-header.is-scrolled { border-bottom-color: transparent; box-shadow: 0 .3em 1em rgba(28, 43, 69, .12); }
+.site-brand { font: 600 1.75em / 1 'Fraunces', Baskerville, Georgia, serif; letter-spacing: -.03em; color: #1c2b45; }
+.site-brand span { color: #5a3424; }
+.site-nav { gap: 2.4em; font-family: inherit; font-size: .9em; font-weight: 500; }
+.site-nav > a { padding: .8em 0; color: #1c2b45; opacity: .78; }
+.site-nav > a::after { bottom: .35em; height: 2px; background: #1c2b45; }
+.site-nav > a:hover, .site-nav > a:focus-visible, .site-nav > a[aria-current] { color: #1c2b45; opacity: 1; }
+#projects, #experience, #about, #skills, #contact { scroll-margin-top: var(--header-h); }
+@media (max-width: 850px) {
+  :root { --header-h: 68px; }
+  .site-brand { padding: 0; font-size: 1.75em; }
+  .site-menu-toggle { background: #f7f5f0; border-color: rgba(28, 43, 69, .25); color: #1c2b45; font-weight: 500; }
+  .site-nav { background: #f7f5f0; font-size: 1em; }
+  .site-nav > a { padding: 16px 8px; border-top-color: rgba(28, 43, 69, .12); }
+  .site-nav > a::after { bottom: 12px; }
+  .site-nav > a[aria-current] { background: #e9eef6; }
+}

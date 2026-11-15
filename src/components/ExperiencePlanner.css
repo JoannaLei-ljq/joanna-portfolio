@@ -1,0 +1,79 @@
+/* Experience — a desk calendar. Each role is a page; the badge from that job
+   is clipped to it. Index tabs on the right always list every role. */
+.xp-heading { margin-bottom: 2.4em; }
+.xp .ds-eyebrow { color: var(--ds-ink); opacity: .75; }
+.xp-tone-1 { --xp-tone: #a9c4e4; --xp-tone-deep: #4f74a6; }
+.xp-tone-2 { --xp-tone: #fbe9a0; --xp-tone-deep: #8a6a12; }
+.xp-tone-3 { --xp-tone: #dbe88a; --xp-tone-deep: #5b6b12; }
+
+.xp-layout { display: grid; grid-template-columns: 1fr 18em; gap: 0; align-items: start; }
+
+/* Calendar */
+.xp-cal { position: relative; padding-top: 1.1em; }
+.xp-rings { position: absolute; top: 0; left: 6%; right: 6%; z-index: 3; display: flex; justify-content: space-between; }
+.xp-rings span { width: .55em; height: 2.2em; border-radius: .3em; background: linear-gradient(90deg, #4a556a, #c8d0dc 45%, #59647a); box-shadow: 0 .15em .2em rgba(0, 0, 0, .25); }
+.xp-page {
+  position: relative; display: grid; grid-template-columns: 11em 1fr; min-height: 21em;
+  border-radius: .5em; background: var(--ds-paper);
+  box-shadow: 0 .45em 0 -.15em #ebe6da, 0 .9em 0 -.3em #dfd8c8, 0 1.6em 2.2em rgba(28, 43, 69, .28);
+  transform-origin: 50% 0;
+}
+.xp-page::before { content: ''; position: absolute; top: .55em; left: 6%; right: 6%; height: .5em; background: radial-gradient(circle, #8da7c7 0 .2em, transparent .22em) 0 0 / calc(100% / 13.6) 100% repeat-x; opacity: .6; }
+.xp-date-block { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .1em; margin: 2em 0 1.6em 1.6em; border-radius: .4em; background: var(--xp-tone); color: var(--ds-ink); text-align: center; transition: background-color .3s ease; }
+.xp-date-month { font: 600 1.1em var(--ds-mono); letter-spacing: .14em; text-transform: uppercase; }
+.xp-date-year { font: 600 3.6em / 1 var(--ds-serif); letter-spacing: -.03em; }
+.xp-date-end { margin-top: .5em; font: 700 1.25em var(--ds-hand); }
+.xp-page-body { padding: 2.6em 11.5em 2.4em 2.2em; }
+.xp-range { margin: 0 0 .7em; font: 600 .72em var(--ds-mono); letter-spacing: .08em; text-transform: uppercase; color: #4a6c9b; }
+.desk-section .xp-page h3 { margin: 0; font: 600 2em / 1.1 var(--ds-serif); letter-spacing: -.02em; color: var(--ds-ink); }
+.xp-employer { margin: .4em 0 1em; font-weight: 700; font-size: 1.02em; color: var(--ds-choc); }
+.xp-description { max-width: 34em; margin: 0; font-size: 1.02em; line-height: 1.65; color: var(--ds-muted); }
+
+/* Badge clipped to the page */
+.xp-badge { position: absolute; top: 2.2em; right: 1.8em; width: 7.4em; transform: rotate(4deg); transform-origin: 50% 0; }
+.xp-badge-clip { position: relative; z-index: 2; display: block; width: 2.6em; height: 1.3em; margin: 0 auto -.5em; border-radius: .3em .3em .15em .15em; background: linear-gradient(90deg, #2a3449, #56627a 50%, #2a3449); box-shadow: 0 .15em .25em rgba(0, 0, 0, .3); }
+.xp-badge-card { display: grid; justify-items: center; gap: .35em; padding: 1.1em .7em .9em; border-radius: .6em; background: #fff; text-align: center; box-shadow: 0 0 0 1px rgba(28, 43, 69, .06), 0 .7em 1.1em rgba(28, 43, 69, .22); }
+.xp-badge-initial { display: grid; place-items: center; width: 2.4em; height: 2.4em; border-radius: .45em; background: var(--xp-tone); font: 600 1.25em var(--ds-serif); color: var(--ds-ink); transition: background-color .3s ease; }
+.xp-badge-company { font: 700 .72em / 1.2 var(--ds-sans); color: var(--ds-ink); }
+.xp-badge-role { font: 500 .56em / 1.3 var(--ds-mono); letter-spacing: .04em; text-transform: uppercase; color: #6b778a; }
+.xp-badge-current { margin-top: .15em; padding: .15em .6em; border-radius: 99em; background: var(--ds-ink); color: #fff; font: 600 .52em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; }
+
+/* Index tabs */
+.xp-tabs { display: grid; gap: .7em; padding-top: 2.6em; }
+.xp-tab { display: grid; gap: .2em; padding: 1em 1.2em 1em 1.6em; border: 0; border-radius: 0 .6em .6em 0; background: rgba(247, 245, 240, .72); color: var(--ds-ink); text-align: left; font: inherit; cursor: pointer; box-shadow: 0 .4em .8em rgba(28, 43, 69, .12); transform: translateX(-.6em); transition: transform .2s ease, background-color .2s ease; position: relative; }
+.xp-tab::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: .45em; background: var(--xp-tone); }
+.xp-tab:hover { transform: translateX(0); background: rgba(247, 245, 240, .92); }
+.xp-tab.is-active { transform: translateX(0); background: var(--ds-paper); box-shadow: 0 .6em 1.1em rgba(28, 43, 69, .2); }
+.xp-tab.is-active::before { width: .7em; }
+.xp-tab:focus-visible { outline: 3px solid var(--ds-choc); outline-offset: 3px; }
+.xp-tab-range { font: 600 .66em var(--ds-mono); letter-spacing: .06em; text-transform: uppercase; color: #4a6c9b; }
+.xp-tab-company { font: 600 1.05em / 1.2 var(--ds-serif); }
+.xp-tab-role { font-size: .82em; color: var(--ds-muted); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .xp-page { animation: xpFlip .55s cubic-bezier(.2, .8, .3, 1) both; }
+  .xp-badge { animation: xpBadge .9s cubic-bezier(.2, .8, .3, 1) .15s both; }
+}
+@keyframes xpFlip { from { opacity: .2; transform: perspective(1400px) rotateX(-70deg); } }
+@keyframes xpBadge { 0% { opacity: 0; transform: rotate(-10deg); } 55% { opacity: 1; transform: rotate(8deg); } 100% { transform: rotate(4deg); } }
+
+@media (max-width: 1000px) {
+  .xp-layout { grid-template-columns: 1fr; }
+  .xp-tabs { order: -1; grid-template-columns: repeat(3, 1fr); gap: .5em; padding: 0 0 1em; }
+  .xp-tab { padding: .8em .8em .8em 1.2em; border-radius: .5em; transform: none; }
+  .xp-tab:hover, .xp-tab.is-active { transform: none; }
+}
+@media (max-width: 640px) {
+  .xp-tabs { grid-template-columns: 1fr; }
+  .xp-tab-role { display: none; }
+  .xp-page { grid-template-columns: 1fr; min-height: 0; }
+  .xp-date-block { flex-direction: row; gap: .6em; justify-content: flex-start; margin: 2.2em 1.2em 0; padding: .6em 1em; }
+  .xp-date-year { font-size: 1.6em; }
+  .xp-date-end { margin: 0 0 0 auto; }
+  .xp-page-body { padding: 1.4em 1.3em 1.8em; }
+  .xp-badge { position: relative; top: auto; right: auto; margin: 0 0 1.6em 1.3em; transform: rotate(-3deg); }
+  .desk-section .xp-page h3 { font-size: 1.7em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xp * { transition: none !important; }
+}

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './SiteNavigation.css';
 import { resumeUrl } from './resume.js';
 
-const links = [{ id: 'projects', label: 'Work' }, { id: 'about', label: 'About' }, { id: 'contact', label: 'Contact' }];
+const links = [{ id: 'projects', label: 'Work' }, { id: 'experience', label: 'Experience' }, { id: 'about', label: 'About' }, { id: 'contact', label: 'Contact' }];
 
 export default function SiteNavigation() {
   const [open, setOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function SiteNavigation() {
     const update = () => {
       const threshold = Math.max(100, window.innerHeight * .28);
       let current = '';
-      for (const id of ['projects', 'about', 'skills', 'contact']) {
+      for (const id of ['projects', 'experience', 'about', 'skills', 'contact']) {
         const section = document.getElementById(id);
         if (section && section.getBoundingClientRect().top <= threshold) current = id === 'skills' ? 'about' : id;
       }
@@ -79,7 +79,7 @@ export default function SiteNavigation() {
       <a className="site-brand" href="#hero-title" aria-label="Joanna Lei, home" onClick={(e) => navigate(e, 'hero-title')}>joanna<span>.</span></a>
       <button ref={toggle} className="site-menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav-links" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'} <span aria-hidden="true">{open ? '−' : '+'}</span></button>
       <nav id="site-nav-links" className={`site-nav${open ? ' is-open' : ''}`} aria-label="Primary">
-        {links.slice(0, 2).map(({ id, label }) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={(e) => navigate(e, id)}>{label}</a>)}
+        {links.slice(0, 3).map(({ id, label }) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={(e) => navigate(e, id)}>{label}</a>)}
         {resumeUrl ? <a href={resumeUrl} target="_blank" rel="noreferrer">Resume<span className="hero-sr-only"> (PDF, opens in a new tab)</span></a> : <span className="site-resume" aria-disabled="true">Resume <span className="site-resume-note">Unavailable</span></span>}
         <a href="#contact" aria-current={active === 'contact' ? 'location' : undefined} onClick={(e) => navigate(e, 'contact')}>Contact</a>
       </nav>

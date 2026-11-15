@@ -1,0 +1,31 @@
+/* Contact — a postcard left on the desk. Builds on .desk-section (AboutDesk.css). */
+.ct {
+  padding-bottom: 3em;
+  background-color: var(--ds-blue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.ct-postcard { display: grid; grid-template-columns: 1.25fr 1fr; max-width: 60em; margin: 0 auto; border-radius: .6em; background: var(--ds-paper); box-shadow: 0 1.3em 1.9em rgba(28, 43, 69, .26); transform: rotate(-1deg); }
+.ct-message { padding: 3.2em 3em 3em 3.4em; }
+.ct .ct-message h2 { font-size: 3.2em; }
+.ct-subtitle { max-width: 30em; margin: 1.4em 0 0; font-size: 1.05em; line-height: 1.6; color: var(--ds-muted); }
+.ct-sign { margin: .9em 0 0; font: 700 1.9em var(--ds-hand); color: var(--ds-ink); transform: rotate(-3deg); transform-origin: left; }
+
+.ct-address { position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 3.2em 3em 3em 2.6em; border-left: 1.5px solid #cfd6e0; }
+.ct-stamp { position: absolute; top: 2em; right: 2.2em; display: grid; place-items: center; gap: .2em; width: 6.4em; padding: .9em .4em .7em; background: var(--ds-blue); color: var(--ds-ink); font: 600 .6em var(--ds-mono); letter-spacing: .08em; text-transform: uppercase; text-align: center; outline: .35em dotted var(--ds-paper); outline-offset: -.18em; box-shadow: 0 .2em .5em rgba(28, 43, 69, .2); transform: rotate(4deg); }
+.ct-stamp span { font-size: 2.6em; line-height: 1; }
+.ct-to { margin: 5.5em 0 .3em; font: 700 1.5em var(--ds-hand); color: var(--ds-blue-deep); }
+.ct-address ul { margin: 0; padding: 0; list-style: none; }
+.ct-address a { display: flex; align-items: center; gap: .7em; padding: .95em .1em; border-bottom: 1.5px solid #cfd6e0; font-weight: 500; font-size: 1.02em; color: var(--ds-ink); text-decoration: none; overflow-wrap: anywhere; transition: padding-left .15s ease, border-color .15s ease; }
+.ct-address a:hover { padding-left: .5em; border-color: var(--ds-ink); }
+.ct-address a:focus-visible { outline: 3px solid var(--ds-choc); outline-offset: 3px; }
+.ct-arrow { margin-left: auto; opacity: .55; }
+.ct-footer { margin: 3.5em 0 0; text-align: center; font: 500 .72em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ds-ink); opacity: .7; }
+
+@media (max-width: 860px) {
+  .ct-postcard { grid-template-columns: 1fr; transform: none; }
+  .ct-message { padding: 2.2em 1.5em 1.4em; }
+  .ct .ct-message h2 { font-size: 2.6em; }
+  .ct-address { padding: 1em 1.5em 1.8em; border-left: 0; border-top: 1.5px solid #cfd6e0; }
+  .ct-stamp { position: static; align-self: flex-end; margin: .6em 0 -1.6em; }
+  .ct-to { margin-top: .6em; }
+}

@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hero concepts — Joanna Lei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --blue: #a9c4e4;
+    --blue-deep: #7fa3cf;
+    --blue-pale: #dde9f6;
+    --navy: #1c2b45;
+    --choc: #5a3424;
+    --cream: #fbf5e6;
+    --paper: #f7f5f0;
+    --lime: #d8e85a;
+    --sans: "DM Sans", system-ui, sans-serif;
+    --serif: "Fraunces", Georgia, serif;
+    --hand: "Caveat", cursive;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--sans); color: var(--navy); background: #e9e6df; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  .label {
+    position: sticky; top: 0; z-index: 50;
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    padding: 9px 20px; background: #111; color: #fff; font-size: 13px;
+  }
+  .label b { font-size: 14px; }
+  .label span { opacity: .7; }
+  .label nav { margin-left: auto; display: flex; gap: 6px; }
+  .label nav a { padding: 3px 10px; border: 1px solid #555; border-radius: 99px; }
+  .label nav a:hover { background: #fff; color: #111; }
+
+  .hero { position: relative; min-height: calc(100vh - 38px); overflow: hidden; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 20px; font-weight: 700; font-size: 15px; border-radius: 6px;
+    transition: transform .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  /* ───────────── A · Desk ───────────── */
+  .a {
+    background-color: var(--blue);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    padding: clamp(20px, 4vw, 48px);
+    display: grid; place-items: center;
+  }
+  .a-desk { position: relative; width: min(1040px, 100%); padding: 40px 0 56px clamp(90px, 17vw, 210px); }
+
+  .a-folder { position: relative; transform: rotate(-1.2deg); filter: drop-shadow(0 18px 22px rgba(28,43,69,.28)); }
+  .a-tab {
+    display: inline-flex; gap: 22px; align-items: center;
+    margin-left: 34%; padding: 9px 22px 8px; border-radius: 12px 12px 0 0;
+    background: var(--blue-deep); color: #fff; font-size: 13px; font-weight: 500;
+  }
+  .a-tab a:hover { text-decoration: underline; }
+  .a-sheet {
+    background: var(--paper); border-radius: 14px 0 14px 14px;
+    padding: clamp(28px, 5vw, 56px) clamp(24px, 5vw, 60px) clamp(28px, 4vw, 44px) clamp(70px, 12vw, 150px);
+  }
+  .a-eyebrow { font: 600 12px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--blue-deep); margin: 0 0 10px; }
+  .a h1 { font: 600 clamp(52px, 9.5vw, 116px)/.92 var(--serif); letter-spacing: -.03em; margin: 0; color: var(--navy); }
+  .a h1 i { font-weight: 400; }
+  .a h1 em { color: var(--choc); font-style: normal; }
+  .a-role { display: inline-block; margin: 16px 0 14px; padding: 3px 12px; background: var(--lime); font-weight: 700; font-size: clamp(16px, 2vw, 21px); transform: rotate(-1.5deg); }
+  .a-intro { max-width: 46ch; margin: 0 0 24px; font-size: 16px; line-height: 1.55; color: #3c4a61; }
+  .a-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .a .btn-main { background: var(--navy); color: #fff; }
+  .a .btn-ghost { border: 1.5px solid var(--navy); }
+
+  .badge {
+    position: absolute; left: 0; top: 0; z-index: 3;
+    width: clamp(150px, 24vw, 250px); transform: rotate(-7deg); transform-origin: 50% 0;
+    filter: drop-shadow(0 14px 16px rgba(28,43,69,.32));
+    transition: transform .5s cubic-bezier(.3,1.6,.5,1);
+  }
+  .badge:hover { transform: rotate(3deg); }
+  .badge-strap { width: 26px; height: 54px; margin: 0 auto -6px; background: var(--navy); border-radius: 3px 3px 0 0; }
+  .badge-clip { width: 44px; height: 16px; margin: 0 auto -6px; background: linear-gradient(#e8ebf0, #9aa5b5); border-radius: 4px; position: relative; z-index: 2; }
+  .badge-card { background: #fff; border-radius: 14px; padding: 12px 12px 14px; border: 1px solid rgba(255,255,255,.8); }
+  .badge-card::before { content: ""; display: block; width: 38px; height: 8px; margin: 0 auto 10px; border-radius: 99px; background: var(--blue); }
+  .badge-photo { background: var(--cream); border-radius: 8px; aspect-ratio: 1; overflow: hidden; }
+  .badge-photo img { mix-blend-mode: multiply; transform: scale(1.18); }
+  .badge-name { margin: 10px 0 0; font: 800 clamp(15px, 2.2vw, 21px) var(--serif); }
+  .badge-role { margin: 2px 0 8px; font: 600 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--blue-deep); }
+  .badge-bar { height: 22px; background: repeating-linear-gradient(90deg, var(--navy) 0 2px, transparent 2px 5px, var(--navy) 5px 6px, transparent 6px 10px); opacity: .85; }
+
+  .sticky {
+    position: absolute; z-index: 4; padding: 14px 16px 16px; width: 168px;
+    font: 700 21px/1.1 var(--hand); color: var(--navy);
+    box-shadow: 0 10px 14px rgba(28,43,69,.22);
+  }
+  .sticky small { display: block; font: 500 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; opacity: .6; margin-bottom: 4px; }
+  .sticky.s1 { right: -8px; top: 6px; background: #fff3a6; transform: rotate(5deg); }
+  .sticky.s2 { right: 6%; bottom: 8px; background: #fff; transform: rotate(-3deg); width: 200px; }
+  .sticky.s2::before { content: ""; position: absolute; top: -10px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(216,232,90,.85); transform: rotate(-2deg); }
+
+  .mug { position: absolute; left: clamp(20px, 6vw, 80px); bottom: 0; width: clamp(64px, 9vw, 96px); aspect-ratio: 1; border-radius: 50%; background: #fff; box-shadow: 0 10px 14px rgba(28,43,69,.3), inset 0 0 0 9px #fff, inset 0 0 0 80px #6b4330; z-index: 3; }
+  .mug::after { content: ""; position: absolute; right: -24%; top: 34%; width: 34%; height: 30%; border: 8px solid #fff; border-left: 0; border-radius: 0 40px 40px 0; }
+
+  /* ───────────── B · Desktop / folders ───────────── */
+  .b { background: var(--paper); background-image: radial-gradient(#cfd6e0 1px, transparent 1px); background-size: 22px 22px; display: flex; flex-direction: column; }
+  .b-bar { display: flex; align-items: center; gap: 22px; padding: 9px 22px; background: rgba(255,255,255,.85); border-bottom: 1.5px solid var(--navy); font-size: 13.5px; font-weight: 500; }
+  .b-bar b { font: 800 16px var(--serif); margin-right: 10px; }
+  .b-bar .right { margin-left: auto; font: 400 12px var(--mono); display: flex; gap: 16px; }
+  .b-bar .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #3fbf6b; margin-right: 6px; }
+  .b-main { flex: 1; display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(20px, 4vw, 60px); align-items: center; width: min(1120px, 100%); margin: 0 auto; padding: clamp(24px, 5vw, 60px) clamp(20px, 4vw, 48px); }
+  .b-hello { font: 700 clamp(30px, 4.6vw, 54px)/1 var(--hand); color: var(--blue-deep); margin: 0 0 -10px 4px; transform: rotate(-4deg); transform-origin: left; position: relative; z-index: 1; }
+  .b h1 { font: 400 clamp(64px, 12.5vw, 164px)/.88 "Anton", sans-serif; letter-spacing: -.01em; text-transform: uppercase; margin: 0; }
+  .b h1 span { display: block; -webkit-text-stroke: 2px var(--navy); color: transparent; }
+  .b-term { margin: 22px 0; padding: 12px 16px; background: var(--navy); color: #dbe6f5; font: 400 13.5px/1.7 var(--mono); border-radius: 8px; max-width: 440px; }
+  .b-term i { color: var(--lime); font-style: normal; }
+  .b-term .cur { display: inline-block; width: 8px; height: 15px; background: var(--lime); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+  .b-cta { position: relative; display: inline-block; padding: 12px 26px; background: var(--blue-pale); border: 1.5px solid #2f6fe0; font: 700 16px var(--sans); letter-spacing: .04em; text-transform: uppercase; }
+  .b-cta::before, .b-cta::after { content: ""; position: absolute; width: 9px; height: 9px; background: #fff; border: 1.5px solid #2f6fe0; }
+  .b-cta::before { left: -6px; top: -6px; } .b-cta::after { right: -6px; bottom: -6px; }
+  .b-links { display: inline-flex; gap: 16px; margin-left: 18px; font-size: 14px; font-weight: 500; }
+  .b-links a { border-bottom: 1.5px solid var(--navy); }
+
+  .b-stage { position: relative; aspect-ratio: 1 / 1.02; }
+  .window { position: absolute; inset: 14% 15% 12% 15%; background: #fff; border: 1.5px solid var(--navy); border-radius: 10px; overflow: hidden; box-shadow: 8px 8px 0 var(--navy); display: flex; flex-direction: column; }
+  .window-bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px; border-bottom: 1.5px solid var(--navy); font: 400 11px var(--mono); }
+  .window-bar u { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid var(--navy); background: #ff8f7a; }
+  .window-bar u:nth-child(2) { background: #ffd66b; } .window-bar u:nth-child(3) { background: #8fd694; margin-right: 8px; }
+  .window-body { flex: 1; background: var(--blue); display: grid; place-items: center; }
+  .window-body img { mix-blend-mode: multiply; width: 96%; }
+  .folder { position: absolute; z-index: 2; width: 23%; text-align: center; font: 600 11.5px var(--mono); white-space: nowrap; transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
+  .folder:hover { transform: translateY(-8px) rotate(-3deg); }
+  .folder b { font-weight: 600; background: var(--paper); border: 1.5px solid var(--navy); border-radius: 4px; padding: 1px 6px; }
+  .folder i { display: block; position: relative; aspect-ratio: 1.3; margin-bottom: 8px; border-radius: 4px 10px 10px 10px; background: var(--c); border: 1.5px solid var(--navy); box-shadow: 4px 4px 0 var(--navy); }
+  .folder i::before { content: ""; position: absolute; left: -1.5px; top: -11px; width: 46%; height: 12px; background: var(--c); border: 1.5px solid var(--navy); border-bottom: 0; border-radius: 6px 8px 0 0; }
+  .folder i::after { content: ""; position: absolute; inset: 22% 0 0 0; background: rgba(255,255,255,.35); border-top: 1.5px solid var(--navy); border-radius: 0 0 8px 8px; }
+  .folder.f1 { --c: #ffb3c7; left: 0; top: 4%; }
+  .folder.f2 { --c: #ffb170; right: 0; top: 0; }
+  .folder.f3 { --c: #9cc3f5; left: -3%; bottom: 18%; }
+  .folder.f4 { --c: #c5e36b; right: -2%; bottom: 6%; }
+  .b-tag { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); white-space: nowrap; padding: 6px 14px; background: var(--lime); border: 1.5px solid var(--navy); font: 600 12px var(--mono); z-index: 3; }
+
+  /* ───────────── C · Poster / stripes ───────────── */
+  .c { background: var(--cream); color: var(--choc); display: flex; flex-direction: column; }
+  .c-nav { display: flex; justify-content: center; gap: clamp(18px, 5vw, 56px); padding: 22px 20px 0; font-weight: 700; font-size: 15px; }
+  .c-nav a:hover { text-decoration: underline wavy; text-underline-offset: 5px; }
+  .c-main { flex: 1; display: grid; grid-template-columns: 1.2fr .9fr; gap: clamp(16px, 4vw, 56px); align-items: center; width: min(1080px, 100%); margin: 0 auto; padding: clamp(20px, 4vw, 44px) clamp(20px, 5vw, 56px); }
+  .c-kicker { font: 700 clamp(22px, 2.8vw, 30px) var(--hand); margin: 0 0 6px; color: var(--blue-deep); }
+  .c h1 { font: 800 clamp(40px, 6.6vw, 82px)/1 var(--serif); letter-spacing: -.025em; margin: 0 0 18px; }
+  .c h1 span { background: linear-gradient(transparent 62%, var(--blue) 62% 92%, transparent 92%); }
+  .c-intro { max-width: 44ch; margin: 0 0 24px; font-size: 16.5px; line-height: 1.55; }
+  .c .btn-main { background: var(--choc); color: var(--cream); border-radius: 99px; padding: 13px 26px; }
+  .c .btn-ghost { border-bottom: 2px solid var(--choc); border-radius: 0; padding: 12px 2px; margin-left: 14px; }
+  .c-frame { position: relative; justify-self: center; width: min(340px, 100%); }
+  .c-arch { aspect-ratio: .8; border-radius: 999px 999px 18px 18px; background: var(--blue); border: 3px solid var(--choc); overflow: hidden; display: grid; place-items: end center; box-shadow: 10px 10px 0 var(--choc); }
+  .c-arch img { mix-blend-mode: multiply; transform: scale(1.25) translateY(-4%); }
+  .seal { position: absolute; left: -52px; bottom: -22px; width: 118px; height: 118px; animation: spin 16s linear infinite; }
+  .seal text { font: 700 10px var(--mono); letter-spacing: .06em; fill: var(--cream); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .c-star { position: absolute; right: -18px; top: 30px; font-size: 44px; line-height: 1; color: var(--choc); transform: rotate(12deg); }
+  .c-band { background: repeating-linear-gradient(90deg, var(--blue) 0 34px, var(--cream) 34px 68px); border-top: 3px solid var(--choc); padding: 20px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .c-band span { background: var(--choc); color: var(--cream); padding: 8px 18px; border-radius: 6px; font: 600 14px var(--serif); }
+  .c-band span:nth-child(even) { background: var(--cream); color: var(--choc); border: 2px solid var(--choc); }
+
+  /* ───────────── D · A × B ───────────── */
+  .d-wrap { --ink: #16233b; --sky: #9fc0ea; --pop: #d8f05a; --pink: #ff9fbd; --orange: #ffb05c; --sun: #ffe66b; color: var(--ink); }
+  .d-wrap .b-bar { position: relative; z-index: 5; border-bottom: 2px solid var(--ink); }
+  .d {
+    min-height: calc(100vh - 80px); padding: clamp(18px, 2.4vw, 34px) clamp(20px, 4vw, 48px);
+    display: grid; place-items: center;
+    background: var(--sky) radial-gradient(rgba(255,255,255,.7) 1.6px, transparent 1.6px) 0 0 / 24px 24px;
+  }
+  .d-desk { position: relative; width: min(1060px, 100%); padding: 22px 0 112px clamp(96px, 17vw, 210px); }
+
+  .d-win { background: var(--paper); border: 2px solid var(--ink); border-radius: 12px; box-shadow: 10px 10px 0 var(--ink); transform: rotate(-1deg); overflow: hidden; }
+  .d-winbar { display: flex; align-items: center; gap: 7px; padding: 9px 12px; background: #fff; border-bottom: 2px solid var(--ink); font: 400 12px var(--mono); }
+  .d-winbar u { width: 11px; height: 11px; border-radius: 50%; border: 1.5px solid var(--ink); background: #ff8f7a; }
+  .d-winbar u:nth-child(2) { background: var(--sun); } .d-winbar u:nth-child(3) { background: #8fd694; margin-right: 8px; }
+  .d-body { padding: clamp(22px, 3.5vw, 40px) clamp(22px, 4vw, 52px) clamp(60px, 7vw, 80px) clamp(76px, 11.5vw, 150px); }
+  .d-hello { font: 700 clamp(28px, 4vw, 46px)/1 var(--hand); color: #3f72bd; margin: 0 0 -6px 2px; transform: rotate(-4deg); transform-origin: left; position: relative; z-index: 1; }
+  .d h1 { font: 400 clamp(58px, 9.6vw, 122px)/.9 "Anton", sans-serif; text-transform: uppercase; letter-spacing: -.005em; margin: 0 0 14px; white-space: nowrap; }
+  .d h1 span { color: var(--sky); -webkit-text-stroke: 2.5px var(--ink); }
+  .d h1 em { font-style: normal; color: var(--choc); }
+  .d-role { display: inline-block; margin: 0 0 16px; padding: 4px 12px; background: var(--pop); border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); font: 600 clamp(13px, 1.6vw, 16px) var(--mono); transform: rotate(-1.5deg); }
+  .d .b-term { margin: 0 0 22px; max-width: 470px; font-size: 13px; background: var(--ink); border-radius: 8px; }
+  .d .b-term i { color: var(--pop); } .d .b-term .cur { background: var(--pop); }
+  .d-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .d .btn { border: 2px solid var(--ink); border-radius: 8px; box-shadow: 4px 4px 0 var(--ink); background: #fff; }
+  .d .btn-main { background: var(--ink); color: #fff; box-shadow: 4px 4px 0 var(--pink); }
+  .d .btn:hover { transform: translate(-2px, -2px); }
+
+  .d .badge { filter: none; width: clamp(150px, 23vw, 240px); }
+  .d .badge-strap { background: var(--ink); }
+  .d .badge-clip { background: #dfe5ee; border: 2px solid var(--ink); }
+  .d .badge-card { border: 2px solid var(--ink); box-shadow: 7px 7px 0 var(--ink); }
+  .d .badge-card::before { background: var(--ink); height: 6px; }
+  .d .badge-photo { background: var(--sun); border: 2px solid var(--ink); }
+  .d .badge-name { font: 400 clamp(17px, 2.4vw, 24px) "Anton", sans-serif; text-transform: uppercase; letter-spacing: .02em; }
+  .d .badge-role { color: #3f72bd; }
+  .d .badge-bar { background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 5px, var(--ink) 5px 6px, transparent 6px 10px); }
+
+  .d .sticky { background: var(--sun); border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); right: -6px; top: -4px; }
+
+  .d-folders { position: absolute; right: 3%; bottom: 12px; z-index: 4; display: flex; gap: clamp(12px, 2.2vw, 26px); align-items: flex-end; }
+  .dfolder { width: clamp(78px, 10.5vw, 112px); text-align: center; font: 600 11px var(--mono); white-space: nowrap; transition: transform .25s cubic-bezier(.3,1.6,.5,1); }
+  .dfolder:nth-child(odd) { transform: rotate(-3deg); } .dfolder:nth-child(even) { transform: rotate(2deg) translateY(6px); }
+  .dfolder:hover { transform: translateY(-12px) rotate(0deg); }
+  .dfolder i { display: block; position: relative; aspect-ratio: 1.28; margin-bottom: 9px; border-radius: 3px 9px 9px 9px; background: var(--c); border: 2px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+  .dfolder i::before { content: ""; position: absolute; left: -2px; top: -12px; width: 46%; height: 12px; background: var(--c); border: 2px solid var(--ink); border-bottom: 0; border-radius: 6px 8px 0 0; }
+  .dfolder i::after { content: ""; position: absolute; inset: 22% 0 0 0; background: rgba(255,255,255,.4); border-top: 2px solid var(--ink); border-radius: 0 0 7px 7px; }
+  .dfolder b { display: inline-block; background: #fff; border: 1.5px solid var(--ink); border-radius: 4px; padding: 1px 7px; }
+  .dfolder.pdf i { --c: #fff; border-radius: 4px; aspect-ratio: .82; width: 68%; margin-inline: auto; }
+  .dfolder.pdf i::before { left: 14%; top: 16%; width: 72%; height: 52%; border: 0; border-radius: 0; background: repeating-linear-gradient(var(--ink) 0 2px, transparent 2px 9px); opacity: .45; }
+  .dfolder.pdf i::after { inset: auto 0 0 0; height: 22%; background: var(--pink); border-radius: 0 0 2px 2px; }
+  @media (max-width: 720px) {
+    .d-desk { padding: 150px 0 20px; }
+    .d-body { padding-left: 22px; padding-top: 170px; }
+    .d .badge { left: 12px; width: 150px; }
+    .d .sticky { top: 56px; }
+    .d-folders { position: static; justify-content: center; margin-top: 30px; }
+  }
+
+  @media (max-width: 720px) {
+    .a-desk { padding-left: 0; padding-top: 150px; }
+    .a-sheet { padding-left: 24px; padding-top: 160px; }
+    .a-tab { margin-left: 44%; gap: 12px; padding-inline: 12px; }
+    .badge { left: 12px; width: 150px; }
+    .sticky.s1 { top: 60px; }
+    .mug { display: none; }
+    .b-main, .c-main { grid-template-columns: 1fr; }
+    .b-stage { max-width: 360px; margin: 0 auto; width: 100%; }
+    .b-bar .right, .b-bar a:nth-of-type(n+3) { display: none; }
+    .seal { left: -10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .seal, .b-term .cur { animation: none; } }
+</style>
+</head>
+<body>
+
+<!-- ═════════ D ═════════ -->
+<div class="label" id="d"><b>方案 D · A × B 合并</b><span>A 的办公桌构图 + B 的描边、粗体字和硬阴影</span>
+  <nav><a href="#d">D</a><a href="#a">A</a><a href="#b">B</a><a href="#c">C</a></nav></div>
+<div class="d-wrap">
+  <div class="b-bar">
+    <b>joanna.</b><a href="#">Work</a><a href="#">About</a><a href="#">Resume</a><a href="#">Contact</a>
+    <div class="right"><span><span class="dot"></span>open to SWE roles</span><span>Seattle, WA</span></div>
+  </div>
+  <section class="hero d">
+    <div class="d-desk">
+      <div class="badge">
+        <div class="badge-strap"></div><div class="badge-clip"></div>
+        <div class="badge-card">
+          <div class="badge-photo"><img src="/public/girl.webp" alt="Illustration of Joanna at a laptop" /></div>
+          <p class="badge-name">Joanna Lei</p>
+          <p class="badge-role">Software Engineer</p>
+          <div class="badge-bar"></div>
+        </div>
+      </div>
+
+      <div class="d-win">
+        <div class="d-winbar"><u></u><u></u><u></u>~/joanna/portfolio_2026</div>
+        <div class="d-body">
+          <p class="d-hello">hi, I'm</p>
+          <h1>Joanna <span>Lei</span><em>.</em></h1>
+          <span class="d-role">Software Engineer</span>
+          <div class="b-term">
+            <div>$ whoami</div>
+            <div><i>→</i> full-stack · applied AI · backend</div>
+            <div>$ now <i>→</i> fullstack intern @ fAIshion <span class="cur"></span></div>
+          </div>
+          <div class="d-actions">
+            <a class="btn btn-main" href="#">Open my work ↘</a>
+            <a class="btn" href="#">Resume ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky s1"><small>note to self</small>ship it, then polish ✦</div>
+      <div class="d-folders">
+        <a class="dfolder" href="#" style="--c:var(--pink)"><i></i><b>career-forge/</b></a>
+        <a class="dfolder" href="#" style="--c:var(--orange)"><i></i><b>task-queue/</b></a>
+        <a class="dfolder" href="#" style="--c:var(--pop)"><i></i><b>focus-gacha/</b></a>
+        <a class="dfolder pdf" href="#"><i></i><b>resume.pdf</b></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═════════ A ═════════ -->
+<div class="label" id="a"><b>方案 A · 办公桌</b><span>工牌 + 文件夹 + 便利贴，沿用现有蓝色和手绘小人</span>
+  <nav><a href="#a">A</a><a href="#b">B</a><a href="#c">C</a></nav></div>
+<section class="hero a">
+  <div class="a-desk">
+    <div class="badge">
+      <div class="badge-strap"></div><div class="badge-clip"></div>
+      <div class="badge-card">
+        <div class="badge-photo"><img src="/public/girl.webp" alt="Illustration of Joanna at a laptop" /></div>
+        <p class="badge-name">Joanna Lei</p>
+        <p class="badge-role">Software Engineer</p>
+        <div class="badge-bar"></div>
+      </div>
+    </div>
+
+    <div class="a-folder">
+      <div class="a-tab"><a href="#">Work</a><a href="#">About</a><a href="#">Resume</a><a href="#">Contact</a></div>
+      <div class="a-sheet">
+        <p class="a-eyebrow">Portfolio / 2026 — Seattle, WA</p>
+        <h1>Joanna <i>Lei</i><em>.</em></h1>
+        <span class="a-role">Software Engineer</span>
+        <p class="a-intro">I build full-stack applications, with a soft spot for applied AI and backend systems — and a data analyst's habit of asking what the problem really is.</p>
+        <div class="a-actions">
+          <a class="btn btn-main" href="#">Open my work ↘</a>
+          <a class="btn btn-ghost" href="#">Resume ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky s1"><small>status</small>Open to SWE roles ✦</div>
+    <div class="sticky s2"><small>currently</small>Fullstack intern @ fAIshion</div>
+    <div class="mug" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ═════════ B ═════════ -->
+<div class="label" id="b"><b>方案 B · 桌面系统</b><span>大字 + 窗口 + 项目文件夹，更偏"工程师"</span>
+  <nav><a href="#a">A</a><a href="#b">B</a><a href="#c">C</a></nav></div>
+<section class="hero b">
+  <div class="b-bar">
+    <b>joanna.</b><a href="#">Work</a><a href="#">About</a><a href="#">Resume</a><a href="#">Contact</a>
+    <div class="right"><span><span class="dot"></span>open to SWE roles</span><span>Seattle, WA</span></div>
+  </div>
+  <div class="b-main">
+    <div>
+      <p class="b-hello">hi, I'm</p>
+      <h1>Joanna <span>Lei</span></h1>
+      <div class="b-term">
+        <div>$ whoami</div>
+        <div><i>→</i> software engineer · full-stack, applied AI, backend</div>
+        <div>$ now <i>→</i> fullstack intern @ fAIshion <span class="cur"></span></div>
+      </div>
+      <a class="b-cta" href="#">Open my work</a>
+      <span class="b-links"><a href="#">Resume ↗</a><a href="#">GitHub ↗</a></span>
+    </div>
+    <div class="b-stage">
+      <a class="folder f1" href="#"><i></i><b>career-forge/</b></a>
+      <a class="folder f2" href="#"><i></i><b>task-queue/</b></a>
+      <a class="folder f3" href="#"><i></i><b>focus-gacha/</b></a>
+      <a class="folder f4" href="#"><i></i><b>resume.pdf</b></a>
+      <div class="window">
+        <div class="window-bar"><u></u><u></u><u></u>joanna_at_work.png</div>
+        <div class="window-body"><img src="/public/girl.webp" alt="Illustration of Joanna at a laptop" /></div>
+      </div>
+      <div class="b-tag">click a folder to open a project</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ C ═════════ -->
+<div class="label" id="c"><b>方案 C · 复古海报</b><span>奶油 + 巧克力 + 蓝条纹，最接近你找的第一张参考</span>
+  <nav><a href="#a">A</a><a href="#b">B</a><a href="#c">C</a></nav></div>
+<section class="hero c">
+  <div class="c-nav"><a href="#">About Me</a><a href="#">My Work</a><a href="#">Experience</a><a href="#">Resume</a><a href="#">Contact</a></div>
+  <div class="c-main">
+    <div>
+      <p class="c-kicker">Hi, I'm Joanna Lei — software engineer.</p>
+      <h1>Clear thinking.<br />Careful code.<br />Software that <span>helps.</span></h1>
+      <p class="c-intro">I build full-stack applications with interests in applied AI and backend engineering — currently a fullstack intern at fAIshion in Seattle.</p>
+      <a class="btn btn-main" href="#">Explore my work</a><a class="btn btn-ghost" href="#">Resume ↗</a>
+    </div>
+    <div class="c-frame">
+      <div class="c-arch"><img src="/public/girl.webp" alt="Illustration of Joanna at a laptop" /></div>
+      <div class="c-star" aria-hidden="true">✦</div>
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="59" fill="#5a3424" />
+        <defs><path id="ring" d="M60,60 m-43,0 a43,43 0 1,1 86,0 a43,43 0 1,1 -86,0" /></defs>
+        <text><textPath href="#ring">OPEN TO SWE ROLES ✦ SEATTLE ✦ 2026 ✦ </textPath></text>
+        <text x="60" y="68" text-anchor="middle" style="font-size:24px">✦</text>
+      </svg>
+    </div>
+  </div>
+  <div class="c-band"><span>Full-stack</span><span>Applied AI</span><span>Backend</span><span>Data-minded</span></div>
+</section>
+
+</body>
+</html>
