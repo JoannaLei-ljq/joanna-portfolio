@@ -8,6 +8,7 @@ export default function SiteNavigation() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('');
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const toggle = useRef(null);
   const header = useRef(null);
 
@@ -23,6 +24,8 @@ export default function SiteNavigation() {
       if (window.scrollY > 100 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = 'contact';
       setActive(current);
       setScrolled(window.scrollY > 24);
+      const hero = document.querySelector('.desk-hero');
+      setPastHero(hero ? hero.getBoundingClientRect().bottom < 80 : window.scrollY > 400);
     };
     const schedule = () => {
       cancelAnimationFrame(frame);
@@ -65,7 +68,7 @@ export default function SiteNavigation() {
   };
 
   return (
-    <header className={`site-header${scrolled ? ' is-scrolled' : ''}`} ref={header}
+    <header className={`site-header${scrolled ? ' is-scrolled' : ''}${pastHero ? ' is-past-hero' : ''}`} ref={header}
       onKeyDown={(event) => {
         if (event.key === 'Escape' && open) {
           event.preventDefault();
@@ -76,7 +79,7 @@ export default function SiteNavigation() {
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
       }}>
-      <a className="site-brand" href="#hero-title" aria-label="Joanna Lei, home" onClick={(e) => navigate(e, 'hero-title')}>joanna<span>.</span></a>
+      <a className="site-brand" href="#hero-title" aria-label="Joanna Lei, home" onClick={(e) => navigate(e, 'hero-title')}><span className="site-stamp" aria-hidden="true">jl</span><span className="site-brand-name" aria-hidden="true">Joanna Lei</span></a>
       <button ref={toggle} className="site-menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav-links" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'} <span aria-hidden="true">{open ? '−' : '+'}</span></button>
       <nav id="site-nav-links" className={`site-nav${open ? ' is-open' : ''}`} aria-label="Primary">
         {links.slice(0, 3).map(({ id, label }) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={(e) => navigate(e, id)}>{label}</a>)}

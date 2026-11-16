@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 import './DeskHero.css';
 import { resumeUrl } from './resume.js';
 
@@ -43,7 +43,7 @@ export default function DeskHero() {
             <div className="desk-badge-card">
               <div className="desk-badge-head">
                 <span className="desk-badge-slot" />
-                <span>ID · 2026</span>
+                <span>ID</span>
               </div>
               <div className="desk-badge-body">
                 <div className="desk-badge-photo">
@@ -52,7 +52,7 @@ export default function DeskHero() {
                 <p className="desk-badge-name">Joanna Lei</p>
                 <p className="desk-badge-role">Software Engineer</p>
                 <div className="desk-badge-foot">
-                  <span>Seattle, WA</span>
+                  <span>USC ’25</span>
                   <span className="desk-badge-bar" />
                 </div>
               </div>
@@ -61,17 +61,18 @@ export default function DeskHero() {
         </div>
 
         <div className="desk-folder">
-          <div className="desk-tab" aria-hidden="true">portfolio_2026</div>
+          <div className="desk-tab" aria-hidden="true">~/joanna</div>
           <div className="desk-sheet">
-            <p className="desk-eyebrow">Portfolio / 2026 — Seattle, WA</p>
+            <p className="desk-eyebrow">M.S. Computer Science, USC · Seattle, WA</p>
             <h1 id="hero-title">
               Joanna <i>Lei</i>
               <em aria-hidden="true">.</em>
             </h1>
-            <p className="desk-role">Software Engineer</p>
+            <p className="desk-role">Applied AI &amp; Full-Stack</p>
             <p className="desk-intro">
-              I build full-stack applications, with a soft spot for applied AI and backend
-              systems — and a data analyst’s habit of asking what the problem really is.
+              I build full-stack applications and backend systems, with a focus on applied AI. I
+              enjoy designing reliable workflows and turning complex ideas into practical software
+              that people can actually use.
             </p>
             <div className="desk-actions">
               <a className="desk-btn desk-btn-main" href="#projects">
@@ -84,7 +85,10 @@ export default function DeskHero() {
                 </a>
               )}
             </div>
-            <div className="desk-socials" aria-label="Professional profiles">
+            <div className="desk-socials" aria-label="Contact and profiles">
+              <a href="mailto:joannalei0907@gmail.com">
+                <FaEnvelope aria-hidden="true" /> joannalei0907@gmail.com
+              </a>
               <a href="https://github.com/JoannaLei-ljq" target="_blank" rel="noreferrer">
                 <FaGithub aria-hidden="true" /> GitHub
                 <span className="desk-sr-only"> (opens in a new tab)</span>
@@ -98,7 +102,7 @@ export default function DeskHero() {
         </div>
 
         <p className="desk-sticky desk-sticky-status">
-          <small>status</small>Open to SWE roles ✦
+          <small>status</small>Open to SDE roles ✦
         </p>
         <p className="desk-sticky desk-sticky-now">
           <small>currently</small>Fullstack intern @ fAIshion
@@ -112,6 +116,10 @@ export default function DeskHero() {
           <circle cx="64" cy="62" r="25" className="desk-mug-crema" />
           <path d="M64 76c-9-6-14-11-14-17 0-4 3-7 7-7 3 0 5 2 7 4 2-2 4-4 7-4 4 0 7 3 7 7 0 6-5 11-14 17z" className="desk-mug-art" />
           <path d="M40 44a32 32 0 0 1 18-12" className="desk-mug-shine" />
+          <g className="desk-mug-steam">
+            <path d="M52 30c-6-8 6-12 0-20s6-12 0-18" />
+            <path d="M70 26c-6-8 6-12 0-20s6-12 0-18" />
+          </g>
         </svg>
       </div>
     </section>

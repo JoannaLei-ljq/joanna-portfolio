@@ -38,7 +38,7 @@
 .desk-hero h1 i { font-weight: 400; }
 .desk-hero h1 em { font-style: normal; color: var(--desk-choc); }
 .desk-role { display: inline-block; margin: 16px 0 14px; padding: 3px 12px; background: var(--desk-lime); color: var(--desk-navy); font-weight: 700; font-size: clamp(1rem, 2vw, 1.3rem); transform: rotate(-1.5deg); }
-.desk-intro { max-width: 46ch; margin: 0 0 24px; font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.55; color: #3c4a61; }
+.desk-intro { max-width: 52ch; margin: 0 0 24px; font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.55; color: #3c4a61; }
 .desk-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .desk-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 12px 20px; border: 1.5px solid var(--desk-navy); border-radius: 6px; font-weight: 700; font-size: .95rem; color: var(--desk-navy); text-decoration: none; transition: transform .15s ease, background-color .15s ease; }
 .desk-btn:hover { transform: translateY(-2px); }
@@ -78,10 +78,14 @@
 /* Sticky notes + mug */
 .desk-sticky { position: absolute; z-index: 4; width: 168px; margin: 0; padding: 14px 16px 16px; font: 700 1.3rem / 1.1 var(--desk-hand); color: var(--desk-navy); box-shadow: 0 10px 14px rgba(28, 43, 69, .22); }
 .desk-sticky small { display: block; margin-bottom: 4px; font: 500 .6rem var(--desk-mono); letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
-.desk-sticky-status { right: -8px; top: 6px; background: #fff3a6; transform: rotate(5deg); }
-.desk-sticky-now { right: 6%; bottom: 8px; width: 200px; background: #fff; transform: rotate(-3deg); }
+.desk-sticky-status { right: -8px; top: 6px; width: 176px; background: #fff3a6; transform: rotate(5deg); }
+.desk-sticky-now { right: 6%; bottom: 8px; width: 176px; background: #fff; transform: rotate(-3deg); }
 .desk-sticky-now::before { content: ''; position: absolute; top: -10px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(216, 232, 90, .85); transform: rotate(-2deg); }
-.desk-mug { position: absolute; left: clamp(10px, 5vw, 70px); bottom: -14px; z-index: 3; width: clamp(96px, 12vw, 132px); height: auto; overflow: visible; filter: drop-shadow(0 8px 10px rgba(28, 43, 69, .2)); transform: rotate(-8deg); }
+.desk-mug { position: absolute; left: clamp(10px, 5vw, 70px); bottom: -14px; z-index: 3; width: clamp(96px, 12vw, 132px); height: auto; overflow: visible; filter: drop-shadow(0 8px 10px rgba(28, 43, 69, .2)); transform: rotate(-8deg); transform-origin: 46% 55%; transition: transform .6s cubic-bezier(.3, 1.5, .5, 1); cursor: pointer; }
+.desk-mug:hover { transform: rotate(22deg) translateY(-3px); }
+.desk-mug-steam path { fill: none; stroke: rgba(255, 255, 255, .85); stroke-width: 3.5; stroke-linecap: round; opacity: 0; transform: translateY(6px); transition: opacity .4s ease, transform .8s ease; }
+.desk-mug:hover .desk-mug-steam path { opacity: 1; transform: translateY(-4px); }
+.desk-mug:hover .desk-mug-steam path:last-child { transition-delay: .12s; }
 .desk-mug-saucer { fill: #fbfbf9; stroke: #e4e7ec; stroke-width: 1.5; }
 .desk-mug-handle { fill: none; stroke: #fff; stroke-width: 11; stroke-linecap: round; }
 .desk-mug-rim { fill: #fff; stroke: #e6e9ee; stroke-width: 1.5; }
