@@ -12,8 +12,11 @@ const jobs = [
     end: 'present',
     range: 'Aug 2026 – Present',
     current: true,
-    description:
-      'Developing B2B styling tools and full-stack workflows, including catalog imports, collection reviews, and Shopify integrations.',
+    about: 'AI-powered fashion creative platform',
+    points: [
+      'Developed lookbook review features with Next.js, Prisma, and PostgreSQL.',
+      'Designed an AI ad-generation workflow for brand campaigns.',
+    ],
   },
   {
     id: 'karyio',
@@ -24,8 +27,11 @@ const jobs = [
     end: 'present',
     range: 'Apr 2026 – Present',
     current: true,
-    description:
-      'Building an AI-powered caregiving app, with a focus on conversational AI, SwiftUI integration, and voice-assisted care logging.',
+    about: 'AI-powered caregiving app',
+    points: [
+      'Implemented backend features for care-team permissions and RAG.',
+      'Shipped SwiftUI iOS features, including AI chat and voice.',
+    ],
   },
   {
     id: 'illuminera',
@@ -35,7 +41,8 @@ const jobs = [
     start: ['May', '2024'],
     end: 'Aug 2024',
     range: 'May 2024 – Aug 2024',
-    description: 'Automated data processing and built SQL-driven analytics and dashboards to support product decisions.',
+    about: 'Data analytics',
+    points: ['Automated data processing and built SQL-driven analytics and dashboards to support product decisions.'],
   },
 ];
 
@@ -79,8 +86,15 @@ export default function ExperiencePlanner() {
               <div className="xp-page-body">
                 <p className="xp-range">{job.range}</p>
                 <h3>{job.role}</h3>
-                <p className="xp-employer">{job.company}</p>
-                <p className="xp-description">{job.description}</p>
+                <p className="xp-employer">
+                  {job.company}
+                  <span className="xp-about">{job.about}</span>
+                </p>
+                <ul className="xp-points">
+                  {job.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
               </div>
 
               <div className="xp-badge" aria-hidden="true">

@@ -13,7 +13,7 @@
 .xp-rings { position: absolute; top: 0; left: 6%; right: 6%; z-index: 3; display: flex; justify-content: space-between; }
 .xp-rings span { width: .55em; height: 2.2em; border-radius: .3em; background: linear-gradient(90deg, #4a556a, #c8d0dc 45%, #59647a); box-shadow: 0 .15em .2em rgba(0, 0, 0, .25); }
 .xp-page {
-  position: relative; display: grid; grid-template-columns: 11em 1fr; min-height: 21em;
+  position: relative; display: grid; grid-template-columns: 11em 1fr; min-height: 16em;
   border-radius: .5em; background: var(--ds-paper);
   box-shadow: 0 .45em 0 -.15em #ebe6da, 0 .9em 0 -.3em #dfd8c8, 0 1.6em 2.2em rgba(28, 43, 69, .28);
   transform-origin: 50% 0;
@@ -27,7 +27,11 @@
 .xp-range { margin: 0 0 .7em; font: 600 .72em var(--ds-mono); letter-spacing: .08em; text-transform: uppercase; color: #4a6c9b; }
 .desk-section .xp-page h3 { margin: 0; font: 600 2em / 1.1 var(--ds-serif); letter-spacing: -.02em; color: var(--ds-ink); }
 .xp-employer { margin: .4em 0 1em; font-weight: 700; font-size: 1.02em; color: var(--ds-choc); }
-.xp-description { max-width: 34em; margin: 0; font-size: 1.02em; line-height: 1.65; color: var(--ds-muted); }
+.xp-about { display: block; margin-top: .25em; font: 500 .72em var(--ds-mono); letter-spacing: .04em; color: #6b778a; }
+.xp-points { max-width: 36em; margin: 0; padding: 0; list-style: none; }
+.xp-points li { position: relative; padding-left: 1.1em; font-size: .98em; line-height: 1.6; color: var(--ds-muted); }
+.xp-points li + li { margin-top: .55em; }
+.xp-points li::before { content: ''; position: absolute; left: 0; top: .7em; width: .45em; height: .45em; border-radius: 50%; background: var(--xp-tone); box-shadow: 0 0 0 1px rgba(28, 43, 69, .25); }
 
 /* Badge clipped to the page */
 .xp-badge { position: absolute; top: 2.2em; right: 1.8em; width: 7.4em; transform: rotate(4deg); transform-origin: 50% 0; }
@@ -80,7 +84,7 @@
   .xp-badge-role, .xp-badge-company { display: none; }
   .xp-badge-card { padding: .9em .5em .7em; }
   .desk-section .xp-page h3, .xp-employer { padding-right: 4.2em; }
-  .xp-description { font-size: .95em; }
+  .xp-points li { font-size: .92em; }
   .desk-section .xp-page h3 { font-size: 1.55em; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -37,14 +37,14 @@
 
 @media (max-width: 900px) {
   .kb-desk { grid-template-columns: 1fr; }
-  .kb-readout { position: sticky; bottom: 1em; z-index: 3; min-height: 0; padding: 1.4em 1.3em 1.1em; transform: none; }
+  .kb-readout { position: relative; min-height: 0; padding: 1.4em 1.3em 1.1em; transform: none; }
 }
 @media (max-width: 640px) {
   .kb-heading { margin-bottom: 1.4em; }
   .kb-lede { font-size: .92em; }
   .kb-board { gap: .4em; padding: .8em; transform: none; }
   .kb-row { gap: .4em; }
-  .kb-mod { flex-basis: 100%; min-height: 1.9em; font-size: .62em; }
+  .kb-mod { flex: 0 0 auto; min-height: 2.4em; padding-inline: .6em; font-size: .62em; }
   .kb-key { min-height: 2.5em; font-size: .72em; padding: .4em .6em; }
   .kb-row-space { display: none; }
 }

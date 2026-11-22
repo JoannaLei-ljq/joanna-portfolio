@@ -5,17 +5,21 @@ import './SkillsKeyboard.css';
 // Where each skill shows up on this site. Only list places the site itself backs up.
 const usedIn = {
   Java: ['Distributed Task Queue'],
-  Python: ['Brazilian E-commerce Analytics', 'Customer Retention & Cohort Analysis'],
+  Python: ['Fintech Data Platform (sync, reconciliation)', 'Brazilian E-commerce Analytics', 'Customer Retention & Cohort Analysis'],
+  Swift: ['Karyio iOS app'],
+  SwiftUI: ['Karyio iOS app (voice mode, chat, summaries)'],
   TypeScript: ['CareerForge'],
   JavaScript: ['FoodCraft Plus'],
-  SQL: ['Brazilian E-commerce Analytics', 'Data Analyst Intern @ Illuminera'],
+  SQL: ['Fintech Data Platform', 'Brazilian E-commerce Analytics', 'Data Analyst Intern @ Illuminera'],
   'Spring Boot': ['Distributed Task Queue'],
-  PostgreSQL: ['Distributed Task Queue'],
-  React: ['Focus Gacha', 'Task Queue dashboard', 'FoodCraft Plus', 'Matchathon'],
-  'Next.js': ['CareerForge', 'Matchathon'],
+  PostgreSQL: ['Fintech Data Platform', 'Distributed Task Queue'],
+  React: ['Focus Gacha', 'Task Queue dashboard', 'FoodCraft Plus'],
+  'Next.js': ['CareerForge'],
   'React Router': ['FoodCraft Plus'],
   'Tailwind CSS': ['CareerForge'],
-  Docker: ['Distributed Task Queue (API + 3 workers + Postgres)'],
+  Docker: ['Fintech Data Platform', 'Distributed Task Queue (API + 3 workers + Postgres)'],
+  dbt: ['Fintech Data Platform (84 data tests)'],
+  Airflow: ['Fintech Data Platform (write-audit-publish DAG)'],
   Vite: ['Focus Gacha'],
   Vercel: ['CareerForge', 'Focus Gacha'],
   'LLM APIs': ['CareerForge (Vercel AI SDK + OpenRouter)', 'Karyio — conversational AI'],
@@ -26,14 +30,14 @@ const usedIn = {
 };
 
 // Core keys are the stack I'd most like to be hired for; they get colour.
-const core = new Set(['Java', 'Spring Boot', 'PostgreSQL', 'TypeScript', 'React', 'Next.js', 'Python', 'Docker', 'LLM APIs']);
+const core = new Set(['Java', 'Spring Boot', 'PostgreSQL', 'TypeScript', 'React', 'Next.js', 'Python', 'SwiftUI', 'Docker', 'LLM APIs']);
 
 const rows = [
-  ['lang', 'Languages', ['Java', 'TypeScript', 'Python', 'JavaScript', 'SQL', 'C++']],
+  ['lang', 'Languages', ['Java', 'TypeScript', 'Python', 'Swift', 'JavaScript', 'SQL', 'C++']],
   ['back', 'Backend & data stores', ['Spring Boot', 'PostgreSQL', 'Node.js', 'Express.js', 'REST APIs', 'Redis', 'MongoDB']],
-  ['front', 'Frontend', ['React', 'Next.js', 'React Router', 'Tailwind CSS']],
-  ['ops', 'Infrastructure & tooling', ['Docker', 'AWS', 'GCP', 'Git / GitHub', 'Vercel', 'Vite', 'JUnit', 'Postman']],
-  ['ai·data', 'Applied AI & data', ['LLM APIs', 'RAG', 'Pandas', 'Matplotlib', 'Cohort analysis', 'Data viz']],
+  ['front', 'Frontend & mobile', ['React', 'Next.js', 'SwiftUI', 'React Router', 'Tailwind CSS']],
+  ['ops', 'Infrastructure & tooling', ['Docker', 'Airflow', 'AWS', 'GCP', 'Git / GitHub', 'Vercel', 'JUnit', 'Postman']],
+  ['ai·data', 'Applied AI & data', ['LLM APIs', 'RAG', 'dbt', 'Pandas', 'Matplotlib', 'Data viz']],
 ];
 
 export default function SkillsKeyboard() {

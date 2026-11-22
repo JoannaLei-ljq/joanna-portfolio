@@ -106,13 +106,22 @@
 @keyframes deskPop { from { opacity: 0; scale: .92; } }
 @media (max-width: 720px) {
   .desk-hero { min-height: 0; }
-  .desk { padding: 150px 0 86px; }
+  .desk { padding: 96px 0 58px; }
   .desk-tab { display: none; }
-  .desk-lanyard { height: 80px; }
-  .desk-sheet { padding: 170px 22px 30px; }
-  .desk-badge { left: 12px; width: 150px; }
-  .desk-sticky-status { top: 64px; right: 0; }
-  .desk-sticky-now { right: 8px; bottom: 0; }
+  .desk-lanyard { height: 64px; }
+  .desk-sheet { padding: 162px 20px 26px; }
+  .desk-badge { left: 8px; width: 118px; transform: rotate(-4deg); }
+  .desk-badge-body { padding: 9px 10px 10px; }
+  .desk-badge-head { height: 26px; }
+  .desk-badge-slot { top: 7px; }
+  .desk-sticky { width: 150px; padding: 10px 12px 12px; font-size: 1.1rem; }
+  .desk-sticky-status { top: 28px; right: 2px; width: 150px; }
+  .desk-sticky-now { right: 6px; bottom: 4px; width: 150px; }
+  .desk-hero h1 { font-size: 3rem; }
+  .desk-role { margin: 12px 0 12px; }
+  .desk-intro { margin-bottom: 18px; font-size: .95rem; }
+  .desk-btn { min-height: 42px; padding: 10px 16px; font-size: .9rem; }
+  .desk-socials { gap: 10px 16px; margin-top: 16px; }
   .desk-mug { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {

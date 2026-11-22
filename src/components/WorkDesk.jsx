@@ -6,14 +6,12 @@ const featured = [
     slug: 'career-forge',
     name: 'CareerForge',
     discipline: 'Applied AI / Full stack',
-    description:
-      'AI interview prep in one place: paste a resume and a target role to get feedback, STAR-formatted talking points, predicted questions, and a live mock interview.',
+    description: 'AI interview prep: resume feedback, STAR rewrites, and live mock interviews.',
     highlights: [
-      ['Built', 'Four tools with mode-specific prompts; an optional job description tailors every answer to one posting.'],
-      ['Fast', 'Responses stream token by token (Vercel AI SDK streamText + useChat) instead of waiting on a full reply.'],
-      ['Safe', 'Per-IP rate limiting protects the API key on the public demo; the model is configurable via OpenRouter.'],
+      'Streams every answer token by token, tailored to any job description',
+      'Rate-limited public demo; the model is configurable through OpenRouter',
     ],
-    stack: ['Next.js', 'TypeScript', 'Vercel AI SDK', 'Tailwind CSS', 'shadcn/ui'],
+    stack: ['Next.js', 'TypeScript', 'Vercel AI SDK', 'Tailwind CSS'],
     images: [
       { src: '/career-forge-overview.webp', width: 1200, height: 780, label: 'Overview', alt: 'CareerForge home screen with its four tools: Resume Analysis, STAR Rewrite, Question Prediction, Mock Interview' },
       { src: '/career-forge-star.webp', width: 1200, height: 780, label: 'STAR Rewrite', alt: 'CareerForge STAR Rewrite tool turning a work story into Situation, Task, Action, Result' },
@@ -22,70 +20,67 @@ const featured = [
     github: 'https://github.com/JoannaLei-ljq/career-forge',
   },
   {
+    slug: 'fintech-data-platform',
+    name: 'Fintech Data Platform',
+    discipline: 'Data & backend engineering',
+    description: 'A payments pipeline where every number is tested, reconciled, and published atomically.',
+    highlights: [
+      'Write-audit-publish with dbt and Airflow — a failed run never reaches users',
+      'A concurrency fuzz test found 221 lost rows; the fix brought it to zero',
+    ],
+    stack: ['PostgreSQL', 'Python', 'dbt', 'Airflow'],
+    images: [
+      { diagram: 'pipeline', label: 'Architecture' },
+      { src: '/fintech-airflow-runs.webp', width: 743, height: 360, label: 'Airflow runs', alt: 'Two Airflow runs of payments_v2_pipeline: one where every task succeeds, and one with an injected dbt failure where reconcile, publish and report never run' },
+    ],
+    github: 'https://github.com/JoannaLei-ljq/fintech-data-platform',
+  },
+  {
     slug: 'task-queue',
     name: 'Distributed Task Queue',
     discipline: 'Backend engineering',
-    description:
-      'A job queue built from scratch to understand what keeps slow, flaky work (like LLM calls) reliable: priority scheduling, safe concurrent claiming, retries, and dead-letter routing.',
+    description: 'A Postgres-backed job queue with safe concurrent workers, retries, and dead-letter routing.',
     highlights: [
-      ['Safe', 'Workers claim jobs with SELECT … FOR UPDATE SKIP LOCKED, so no job is processed twice — Postgres is both queue and coordinator.'],
-      ['Resilient', 'Lock leases recover jobs from crashed workers; failures retry with exponential backoff, then go to a dead-letter queue.'],
-      ['Debugged', 'Split claim and finish into separate transactions after READ COMMITTED hid the RUNNING state from other connections.'],
+      'SKIP LOCKED claiming: no job ever runs twice',
+      'Lock leases recover jobs from crashed workers',
     ],
-    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker', 'React'],
+    stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
+    diagram: 'queue',
     github: 'https://github.com/JoannaLei-ljq/distributed-task-queue',
-  },
-  {
-    slug: 'focus-gacha',
-    name: 'Focus Gacha',
-    discipline: 'Interactive frontend',
-    description:
-      'A task picker for when deciding what to do is harder than doing it: pull the handle, get one task, and commit to five minutes.',
-    highlights: [
-      ['Built', 'Hand-drawn SVG machine with a from-scratch 2D physics loop — capsules fall, bounce, and settle like real ones.'],
-      ['Designed', '“Done” stays locked until the five-minute timer finishes; then it turns into an overtime stopwatch.'],
-      ['Shipped', 'Stats, achievements, and history persist in localStorage; auto-deploys to Vercel on every push.'],
-    ],
-    stack: ['React', 'Vite', 'SVG / Physics', 'Web Audio API'],
-    images: [{ src: '/focus-gacha.webp', width: 1200, height: 654, alt: 'Focus Gacha capsule machine with the task timer' }],
-    demo: 'https://focus-gacha.vercel.app/',
-    github: 'https://github.com/JoannaLei-ljq/focus-gacha',
   },
 ];
 
 const drawer = [
   {
-    name: 'FoodCraft Plus',
-    category: 'Consumer app',
-    description:
-      "Suggests recipes from whatever's already in your kitchen, so deciding what to cook stops being the hardest part of cooking.",
-    stack: 'React · React Router · React Select',
+    name: 'Focus Gacha',
+    category: 'Interactive frontend',
+    description: 'A gacha-style task picker with a hand-drawn SVG machine and custom physics.',
+    stack: 'React · SVG physics · Web Audio',
+    demo: 'https://focus-gacha.vercel.app/',
+    github: 'https://github.com/JoannaLei-ljq/focus-gacha',
   },
   {
-    name: 'Matchathon Web App',
-    category: 'Hackathon project',
-    description: 'Connects people quickly through a fast, intuitive interface, built in a weekend hackathon.',
-    stack: 'Next.js · React · Rapid prototyping',
+    name: 'FoodCraft Plus',
+    category: 'Consumer app',
+    description: 'Suggests recipes from the ingredients already in your kitchen.',
+    stack: 'React · React Router',
   },
   {
     name: 'Brazilian E-commerce Analytics',
     category: 'Data analytics · team project',
-    description:
-      'SQL + pandas analysis of ~100k Olist orders: a 3.12% repeat-purchase rate and a November revenue peak pointed to retention as the growth lever.',
-    stack: 'SQL · Python · Pandas · Matplotlib',
+    description: 'Analyzed ~100k orders and found a 3.12% repeat-purchase rate.',
+    stack: 'SQL · Python · Pandas',
     github: 'https://github.com/x6zeng/brazilian-ecommerce-analytics',
   },
   {
     name: 'Customer Retention & Cohort Analysis',
     category: 'Data analytics',
-    description:
-      'Cohort analysis of UK online-retail transactions: tracks acquisition, month-by-month retention, and revenue per cohort to show when customers drop off.',
-    stack: 'Python · Pandas · Cohort analysis',
+    description: 'Cohort analysis showing when online-retail customers stop coming back.',
+    stack: 'Python · Pandas',
     github: 'https://github.com/JoannaLei-ljq/customer-retention-cohort-analysis',
   },
 ];
 
-// Stands in for a screenshot: the queue has no UI, so show how jobs flow.
 // One or more screenshots, stacked like photos. With two or more, small
 // labels underneath bring a different one to the front.
 function ProjectPhotos({ images }) {
@@ -97,12 +92,16 @@ function ProjectPhotos({ images }) {
       <div className="wd-photo-stack">
         {images.map((image, index) => (
           <figure
-            key={image.src}
+            key={image.src || image.diagram}
             className={`wd-photo${index === front ? ' is-front' : ' is-back'}`}
             aria-hidden={index === front ? undefined : true}
             onClick={index === front ? undefined : () => setFront(index)}
           >
-            <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
+            {image.diagram === 'pipeline' ? (
+              <PipelineDiagram />
+            ) : (
+              <img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" />
+            )}
           </figure>
         ))}
       </div>
@@ -110,7 +109,7 @@ function ProjectPhotos({ images }) {
         <div className="wd-shot-tabs" role="group" aria-label="Screenshots">
           {images.map((image, index) => (
             <button
-              key={image.src}
+              key={image.src || image.diagram}
               type="button"
               className={index === front ? 'is-active' : ''}
               aria-pressed={index === front}
@@ -122,6 +121,49 @@ function ProjectPhotos({ images }) {
         </div>
       )}
     </div>
+  );
+}
+
+// The pipeline has no UI either: show write → audit → publish.
+function PipelineDiagram() {
+  return (
+    <svg className="wd-diagram" viewBox="0 0 600 327" role="img" aria-label="Diagram: payments are written to a PostgreSQL OLTP database through write functions, synced into raw tables with a transaction-ID watermark, built by dbt into a candidate schema, independently reconciled, and only then published to marts in one transaction. If any step fails, the published marts stay as the last good run.">
+      <defs>
+        <marker id="wd-arrow-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0 0 10 5 0 10z" fill="#1c2b45" />
+        </marker>
+      </defs>
+      <rect width="600" height="327" fill="#fbf5e6" />
+      <g fontFamily="'JetBrains Mono', ui-monospace, monospace" fill="#1c2b45" textAnchor="middle">
+        <text x="300" y="30" fontSize="11" opacity=".7">Airflow · sync → dbt build → reconcile → publish</text>
+        <g stroke="#1c2b45" strokeWidth="1.6">
+          <rect x="20" y="58" width="140" height="62" rx="8" fill="#a9c4e4" />
+          <rect x="200" y="58" width="110" height="62" rx="8" fill="#fff" />
+          <rect x="350" y="58" width="230" height="62" rx="8" fill="#fff3a6" />
+          <rect x="350" y="178" width="230" height="58" rx="8" fill="#fff" />
+          <rect x="20" y="178" width="200" height="58" rx="8" fill="#dbe88a" />
+        </g>
+        <g stroke="#1c2b45" strokeWidth="1.6" fill="none" markerEnd="url(#wd-arrow-p)">
+          <path d="M160 89H196" />
+          <path d="M310 89H346" />
+          <path d="M465 120V174" />
+          <path d="M350 207H224" />
+        </g>
+        <text x="90" y="85" fontSize="13" fontWeight="600">PostgreSQL</text>
+        <text x="90" y="103" fontSize="10">OLTP · write fns</text>
+        <text x="255" y="85" fontSize="13" fontWeight="600">raw.*</text>
+        <text x="255" y="103" fontSize="10">xid watermark</text>
+        <text x="465" y="85" fontSize="13" fontWeight="600">dbt build</text>
+        <text x="465" y="103" fontSize="10">marts_candidate · tests</text>
+        <text x="465" y="203" fontSize="13" fontWeight="600">reconcile</text>
+        <text x="465" y="221" fontSize="10">OLTP ↔ raw ↔ candidate</text>
+        <text x="120" y="203" fontSize="13" fontWeight="600">marts.*</text>
+        <text x="120" y="221" fontSize="10">published in one txn</text>
+        <text x="287" y="198" fontSize="10">if valid</text>
+        <text x="300" y="282" fontSize="11">✗ any step fails → marts stay as the last good run</text>
+        <text x="300" y="304" fontSize="10" opacity=".7">313 pytest · 84 dbt data tests · 112 acceptance checks</text>
+      </g>
+    </svg>
   );
 }
 
@@ -180,7 +222,6 @@ function QueueDiagram() {
 
 export default function WorkDesk() {
   const [active, setActive] = useState(0);
-  const [detailsOpen, setDetailsOpen] = useState(false);
   const tabs = useRef([]);
   const project = featured[active];
 
@@ -202,7 +243,7 @@ export default function WorkDesk() {
             Things I’ve <i>built</i>
             <em aria-hidden="true">.</em>
           </h2>
-          <p className="wd-lede">Three projects across applied AI, backend systems, and interactive frontend.</p>
+          <p className="wd-lede">Three projects across applied AI, data correctness, and backend systems.</p>
           <p className="wd-hint" aria-hidden="true">pick a folder ↓</p>
         </header>
 
@@ -218,7 +259,7 @@ export default function WorkDesk() {
               aria-controls="wd-panel"
               tabIndex={active === index ? 0 : -1}
               className={`wd-tab wd-tone-${index + 1}${active === index ? ' is-active' : ''}`}
-              onClick={() => { setActive(index); setDetailsOpen(false); }}
+              onClick={() => setActive(index)}
             >
               <span className="wd-tab-number">0{index + 1}</span>
               {item.name}
@@ -234,7 +275,7 @@ export default function WorkDesk() {
               <div className="wd-photos">
                 <div className="wd-photo-stack">
                   <figure className="wd-photo is-front">
-                    <QueueDiagram />
+                    {project.diagram === 'pipeline' ? <PipelineDiagram /> : <QueueDiagram />}
                   </figure>
                 </div>
               </div>
@@ -246,23 +287,11 @@ export default function WorkDesk() {
               </p>
               <h3>{project.name}</h3>
               <p className="wd-description">{project.description}</p>
-              <button
-                type="button"
-                className="wd-more"
-                aria-expanded={detailsOpen}
-                aria-controls="wd-highlights"
-                onClick={() => setDetailsOpen(!detailsOpen)}
-              >
-                {detailsOpen ? 'Hide build notes' : 'How it’s built'} <span aria-hidden="true">{detailsOpen ? '−' : '+'}</span>
-              </button>
-              <dl className={`wd-highlights${detailsOpen ? ' is-open' : ''}`} id="wd-highlights">
-                {project.highlights.map(([label, text]) => (
-                  <div key={label}>
-                    <dt>{label}</dt>
-                    <dd>{text}</dd>
-                  </div>
+              <ul className="wd-points">
+                {project.highlights.map((point) => (
+                  <li key={point}>{point}</li>
                 ))}
-              </dl>
+              </ul>
               <ul className="wd-stack" aria-label={`${project.name} technologies`}>
                 {project.stack.map((tech) => (
                   <li key={tech}>{tech}</li>
@@ -286,7 +315,7 @@ export default function WorkDesk() {
 
         <div className="wd-drawer">
           <h3 id="all-projects">Also in the drawer</h3>
-          <p className="wd-drawer-lede">Four more, from consumer apps to data analysis.</p>
+          <p className="wd-drawer-lede">Four more, from interactive frontend to data analysis.</p>
           <ul className="wd-cards">
             {drawer.map((item) => (
               <li key={item.name} className="wd-card">
@@ -294,11 +323,21 @@ export default function WorkDesk() {
                 <h4>{item.name}</h4>
                 <p className="wd-card-description">{item.description}</p>
                 <p className="wd-card-stack">{item.stack}</p>
-                {item.github && (
-                  <a href={item.github} target="_blank" rel="noreferrer">
-                    GitHub <span aria-hidden="true">↗</span>
-                    <span className="hero-sr-only"> (opens in a new tab)</span>
-                  </a>
+                {(item.demo || item.github) && (
+                  <p className="wd-card-links">
+                    {item.demo && (
+                      <a href={item.demo} target="_blank" rel="noreferrer">
+                        Live demo <span aria-hidden="true">↗</span>
+                        <span className="hero-sr-only"> (opens in a new tab)</span>
+                      </a>
+                    )}
+                    {item.github && (
+                      <a href={item.github} target="_blank" rel="noreferrer">
+                        GitHub <span aria-hidden="true">↗</span>
+                        <span className="hero-sr-only"> (opens in a new tab)</span>
+                      </a>
+                    )}
+                  </p>
                 )}
               </li>
             ))}
