@@ -79,7 +79,7 @@ export default function SiteNavigation() {
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
       }}>
-      <a className="site-brand" href="#hero-title" aria-label="Joanna Lei, home" onClick={(e) => navigate(e, 'hero-title')}><span className="site-stamp" aria-hidden="true">jl</span><span className="site-brand-name" aria-hidden="true">Joanna Lei</span></a>
+      <a className="site-brand" href="#hero-title" aria-label="Joanna Lei, home" onClick={(e) => navigate(e, 'hero-title')}><span className="site-stamp" aria-hidden="true">JL</span><span className="site-brand-name" aria-hidden="true">Joanna Lei</span></a>
       <button ref={toggle} className="site-menu-toggle" type="button" aria-expanded={open} aria-controls="site-nav-links" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'} <span aria-hidden="true">{open ? '−' : '+'}</span></button>
       <nav id="site-nav-links" className={`site-nav${open ? ' is-open' : ''}`} aria-label="Primary">
         {links.slice(0, 3).map(({ id, label }) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={(e) => navigate(e, id)}>{label}</a>)}

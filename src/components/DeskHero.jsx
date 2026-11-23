@@ -44,10 +44,11 @@ export default function DeskHero() {
               <div className="desk-badge-head">
                 <span className="desk-badge-slot" />
                 <span>ID</span>
+                <span>SWE · 2026</span>
               </div>
               <div className="desk-badge-body">
                 <div className="desk-badge-photo">
-                  <img src="/girl.webp" alt="" width="500" height="500" />
+                  <img src="/joanna-illustration.webp" alt="" width="800" height="800" />
                 </div>
                 <p className="desk-badge-name">Joanna Lei</p>
                 <p className="desk-badge-role">Software Engineer</p>

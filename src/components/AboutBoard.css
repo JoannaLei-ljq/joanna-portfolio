@@ -10,7 +10,7 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-areas:
     "main main main main main main main term term term term term"
-    ". edu edu edu edu edu edu edu edu edu edu .";
+    ". . edu edu edu edu edu edu edu edu edu edu";
   gap: 0 1.6em;
   align-items: start;
 }
@@ -26,8 +26,8 @@
 /* about_me.md */
 .ab-main { grid-area: main; z-index: 1; }
 .ab-main-body { display: grid; grid-template-columns: 8.5em 1fr; gap: 2em; align-items: start; padding: 2.4em 2.4em 2.5em; }
-.ab-avatar { aspect-ratio: 1; overflow: hidden; border-radius: 50%; background: var(--ds-cream); box-shadow: 0 0 0 .35em #fff, 0 0 0 calc(.35em + 1px) #e3e7ed; }
-.ab-avatar img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; transform: scale(1.5) translate(3%, 6%); }
+.ab-avatar { aspect-ratio: 1; border-radius: 50%; filter: drop-shadow(0 .35em .6em rgba(28, 43, 69, .14)); }
+.ab-avatar img { display: block; width: 100%; height: auto; }
 .ab-main h2 { font-size: 2.45em; }
 .ab-lead { margin: 1em 0 .8em; font: 400 1.32em / 1.4 var(--ds-serif); color: var(--ds-ink); }
 .ab-main-body p:not([class]) { margin: 0; font-size: 1em; line-height: 1.65; color: var(--ds-muted); }

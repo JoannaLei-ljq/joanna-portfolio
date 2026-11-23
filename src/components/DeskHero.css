@@ -64,12 +64,13 @@
 .desk-badge:hover .desk-badge-card { box-shadow: 0 0 0 5px rgba(207, 224, 245, .75), 0 0 0 6px rgba(127, 163, 207, .35), 0 26px 36px rgba(28, 43, 69, .26), 0 4px 8px rgba(28, 43, 69, .1); }
 .desk-badge-card { position: relative; z-index: 1; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 5px rgba(207, 224, 245, .75), 0 0 0 6px rgba(127, 163, 207, .35), 0 16px 26px rgba(28, 43, 69, .22), 0 3px 6px rgba(28, 43, 69, .1); }
 .desk-badge-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(125deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, 0) 32%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, .25) 100%); pointer-events: none; }
-.desk-badge-head { position: relative; display: flex; align-items: center; justify-content: flex-end; height: 34px; padding: 0 12px; background: #dbe7f5; color: #4a6c9b; font: 600 .56rem var(--desk-mono); letter-spacing: .14em; }
+.desk-badge-head { position: relative; display: flex; align-items: center; justify-content: space-between; height: 34px; padding: 0 12px; background: #dbe7f5; color: #4a6c9b; font: 600 .56rem var(--desk-mono); letter-spacing: .14em; }
 .desk-badge-slot { position: absolute; left: 50%; top: 9px; width: 40px; height: 8px; margin-left: -20px; border-radius: 99px; background: #f7f9fc; box-shadow: inset 0 1px 2px rgba(28, 43, 69, .25); }
-.desk-badge-head span:last-child { margin-top: 10px; }
+.desk-badge-head span:not(.desk-badge-slot) { margin-top: 10px; }
 .desk-badge-body { padding: 12px 14px 14px; }
 .desk-badge-photo { overflow: hidden; aspect-ratio: 1; border-radius: 8px; background: var(--desk-cream); }
-.desk-badge-photo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; transform: scale(1.18); }
+/* ID-photo crop: head and shoulders from the same illustration. */
+.desk-badge-photo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; transform-origin: 54% 30%; transform: scale(1.3); }
 .desk-badge-name { margin: 11px 0 0; font: 700 clamp(1rem, 2.1vw, 1.3rem) / 1.1 var(--desk-serif); letter-spacing: -.01em; color: var(--desk-navy); }
 .desk-badge-role { margin: 3px 0 10px; font: 600 .58rem var(--desk-mono); letter-spacing: .12em; text-transform: uppercase; color: #4a6c9b; }
 .desk-badge-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding-top: 9px; border-top: 1px dashed #d5dbe4; font: 500 .55rem var(--desk-mono); letter-spacing: .06em; color: #6b778a; }
@@ -78,8 +79,14 @@
 /* Sticky notes + mug */
 .desk-sticky { position: absolute; z-index: 4; width: 168px; margin: 0; padding: 14px 16px 16px; font: 700 1.3rem / 1.1 var(--desk-hand); color: var(--desk-navy); box-shadow: 0 10px 14px rgba(28, 43, 69, .22); }
 .desk-sticky small { display: block; margin-bottom: 4px; font: 500 .6rem var(--desk-mono); letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
+.desk-sticky { transition: transform .5s cubic-bezier(.3, 1.6, .5, 1), box-shadow .3s ease; cursor: default; }
+.desk-sticky:hover { box-shadow: 0 16px 20px rgba(28, 43, 69, .22); }
 .desk-sticky-status { right: -8px; top: 6px; width: 176px; background: #fff3a6; transform: rotate(5deg); }
+.desk-sticky-status:hover { transform: rotate(-1deg) translateY(-6px); }
 .desk-sticky-now { right: 6%; bottom: 8px; width: 176px; background: #fff; transform: rotate(-3deg); }
+.desk-sticky-now:hover { transform: rotate(2deg) translateY(-6px); }
+.desk-sticky-now::before { transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.desk-sticky-now:hover::before { transform: rotate(4deg) translateY(-2px); }
 .desk-sticky-now::before { content: ''; position: absolute; top: -10px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(216, 232, 90, .85); transform: rotate(-2deg); }
 .desk-mug { position: absolute; left: clamp(10px, 5vw, 70px); bottom: -14px; z-index: 3; width: clamp(96px, 12vw, 132px); height: auto; overflow: visible; filter: drop-shadow(0 8px 10px rgba(28, 43, 69, .2)); transform: rotate(-8deg); transform-origin: 46% 55%; transition: transform .6s cubic-bezier(.3, 1.5, .5, 1); cursor: pointer; }
 .desk-mug:hover { transform: rotate(22deg) translateY(-3px); }
@@ -113,6 +120,7 @@
   .desk-badge { left: 8px; width: 118px; transform: rotate(-4deg); }
   .desk-badge-body { padding: 9px 10px 10px; }
   .desk-badge-head { height: 26px; }
+  .desk-badge-head span:nth-child(2) { display: none; }
   .desk-badge-slot { top: 7px; }
   .desk-sticky { width: 150px; padding: 10px 12px 12px; font-size: 1.1rem; }
   .desk-sticky-status { top: 28px; right: 2px; width: 150px; }

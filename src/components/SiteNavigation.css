@@ -59,7 +59,7 @@
 /* Brand: a monogram stamp on the desk; the full name appears only after the
    hero (which already shows the name) has scrolled out of view. */
 .site-brand { display: inline-flex; align-items: center; gap: .6em; font-size: 1em; text-decoration: none; }
-.site-brand .site-stamp { display: grid; place-items: center; width: 2.3em; height: 2.3em; border-radius: 50%; background: #1c2b45; color: #fbf5e6; font: 600 1.05em / 1 'Fraunces', Georgia, serif; letter-spacing: -.02em; box-shadow: 0 0 0 2px #fbf5e6, 0 0 0 3.5px #1c2b45; transform: rotate(-8deg); transition: transform .3s ease; }
+.site-brand .site-stamp { display: grid; place-items: center; width: 2.3em; height: 2.3em; border-radius: 50%; background: #1c2b45; color: #fbf5e6; font: 600 .92em / 1 'Fraunces', Georgia, serif; letter-spacing: .02em; box-shadow: 0 0 0 2px #fbf5e6, 0 0 0 3.5px #1c2b45; transform: rotate(-8deg); transition: transform .3s ease; }
 .site-brand:hover .site-stamp { transform: rotate(4deg); }
 .site-brand .site-brand-name { font: 600 1.35em / 1 'Fraunces', Georgia, serif; letter-spacing: -.02em; color: #1c2b45; opacity: 0; transform: translateX(-6px); transition: opacity .25s ease, transform .25s ease; }
 .site-header.is-past-hero .site-brand-name { opacity: 1; transform: none; }

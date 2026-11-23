@@ -237,7 +237,7 @@ export default function WorkDesk() {
   return (
     <section id="projects" className="work-desk" aria-labelledby="work-heading">
       <div className="wd-inner">
-        <header className="wd-heading">
+        <header className="wd-heading" data-reveal>
           <p className="wd-eyebrow">Selected work / 01—03</p>
           <h2 id="work-heading">
             Things I’ve <i>built</i>
@@ -247,7 +247,7 @@ export default function WorkDesk() {
           <p className="wd-hint" aria-hidden="true">pick a folder ↓</p>
         </header>
 
-        <div className="wd-tabs" role="tablist" aria-label="Featured projects" onKeyDown={onKeyDown}>
+        <div className="wd-tabs" data-reveal style={{ '--reveal-delay': '.1s' }} role="tablist" aria-label="Featured projects" onKeyDown={onKeyDown}>
           {featured.map((item, index) => (
             <button
               key={item.slug}
@@ -267,7 +267,7 @@ export default function WorkDesk() {
           ))}
         </div>
 
-        <div className={`wd-folder wd-tone-${active + 1}`} role="tabpanel" id="wd-panel" aria-labelledby={`wd-tab-${project.slug}`}>
+        <div className={`wd-folder wd-tone-${active + 1}`} data-reveal style={{ '--reveal-delay': '.18s' }} role="tabpanel" id="wd-panel" aria-labelledby={`wd-tab-${project.slug}`}>
           <article className="wd-sheet" key={project.slug}>
             {project.images ? (
               <ProjectPhotos images={project.images} />
@@ -313,7 +313,7 @@ export default function WorkDesk() {
           </article>
         </div>
 
-        <div className="wd-drawer">
+        <div className="wd-drawer" data-reveal>
           <h3 id="all-projects">Also in the drawer</h3>
           <p className="wd-drawer-lede">Four more, from interactive frontend to data analysis.</p>
           <ul className="wd-cards">

@@ -42,7 +42,7 @@ export default function ContactDesk() {
         <div className="ct-desk">
           <div className="ct-stack">
             <div className="ct-card">
-              <span className="ct-card-mark" aria-hidden="true">jl</span>
+              <span className="ct-card-mark" aria-hidden="true">JL</span>
               <p className="ct-card-name">Joanna Lei</p>
               <p className="ct-card-role">Applied AI &amp; Full-Stack</p>
               <div className="ct-card-foot">

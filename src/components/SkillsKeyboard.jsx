@@ -6,8 +6,8 @@ import './SkillsKeyboard.css';
 const usedIn = {
   Java: ['Distributed Task Queue'],
   Python: ['Fintech Data Platform (sync, reconciliation)', 'Brazilian E-commerce Analytics', 'Customer Retention & Cohort Analysis'],
-  Swift: ['Karyio iOS app'],
-  SwiftUI: ['Karyio iOS app (voice mode, chat, summaries)'],
+  Swift: ['ReigniteLIFE care app (iOS)'],
+  SwiftUI: ['ReigniteLIFE care app (voice, chat, summaries)'],
   TypeScript: ['CareerForge'],
   JavaScript: ['FoodCraft Plus'],
   SQL: ['Fintech Data Platform', 'Brazilian E-commerce Analytics', 'Data Analyst Intern @ Illuminera'],
@@ -22,7 +22,7 @@ const usedIn = {
   Airflow: ['Fintech Data Platform (write-audit-publish DAG)'],
   Vite: ['Focus Gacha'],
   Vercel: ['CareerForge', 'Focus Gacha'],
-  'LLM APIs': ['CareerForge (Vercel AI SDK + OpenRouter)', 'Karyio — conversational AI'],
+  'LLM APIs': ['CareerForge (Vercel AI SDK + OpenRouter)', 'ReigniteLIFE — AI care assistant'],
   Pandas: ['Brazilian E-commerce Analytics', 'Customer Retention & Cohort Analysis'],
   Matplotlib: ['Brazilian E-commerce Analytics'],
   'Cohort analysis': ['Customer Retention & Cohort Analysis'],
@@ -40,6 +40,9 @@ const rows = [
   ['ai·data', 'Applied AI & data', ['LLM APIs', 'RAG', 'dbt', 'Pandas', 'Matplotlib', 'Data viz']],
 ];
 
+// Order of every skill key, used to stagger their pop-in.
+const keyOrder = new Map(rows.flatMap(([, , skills]) => skills).map((skill, index) => [skill, index]));
+
 export default function SkillsKeyboard() {
   const [active, setActive] = useState(null);
   const places = active ? usedIn[active] : null;
@@ -47,7 +50,7 @@ export default function SkillsKeyboard() {
   return (
     <section id="skills" className="desk-section kb" aria-labelledby="skills-heading">
       <div className="ds-inner">
-        <header className="kb-heading">
+        <header className="kb-heading" data-reveal>
           <p className="ds-eyebrow">Toolkit</p>
           <h2 id="skills-heading">
             What I <i>work with</i>
@@ -60,7 +63,7 @@ export default function SkillsKeyboard() {
         </header>
 
         <div className="kb-desk">
-          <div className="kb-board" role="group" aria-label="Technical skills">
+          <div className="kb-board" data-reveal style={{ '--reveal-delay': '.1s' }} role="group" aria-label="Technical skills">
             {rows.map(([mod, label, skills]) => (
               <div className="kb-row" key={mod} role="group" aria-label={label}>
                 <span className="kb-key kb-mod" aria-hidden="true">{mod}</span>
@@ -68,6 +71,7 @@ export default function SkillsKeyboard() {
                   <button
                     key={skill}
                     type="button"
+                    style={{ '--k': keyOrder.get(skill) }}
                     className={`kb-key${core.has(skill) ? ' is-core' : ''}${active === skill ? ' is-down' : ''}`}
                     aria-pressed={active === skill}
                     aria-controls="kb-readout"
@@ -87,7 +91,7 @@ export default function SkillsKeyboard() {
             </div>
           </div>
 
-          <aside className="kb-readout" id="kb-readout" aria-live="polite">
+          <aside className="kb-readout" data-reveal style={{ '--reveal-delay': '.3s' }} id="kb-readout" aria-live="polite">
             {active ? (
               <>
                 <p className="kb-readout-label">{places ? 'used in' : 'in my toolkit'}</p>

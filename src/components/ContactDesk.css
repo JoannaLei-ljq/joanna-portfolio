@@ -42,7 +42,7 @@
 .ct-stack::before { transform: rotate(4deg) translate(.4em, .4em); }
 .ct-stack::after { transform: rotate(-4deg) translate(-.3em, .5em); background: #f3efe7; }
 .ct-card { position: relative; z-index: 1; display: flex; flex-direction: column; aspect-ratio: 1.75; padding: 1.6em 1.7em 1.4em; border-radius: .5em; background: #fff; box-shadow: 0 0 0 1px rgba(28, 43, 69, .05), 0 1em 1.6em rgba(28, 43, 69, .24); }
-.ct-card-mark { position: absolute; top: 1.2em; right: 1.3em; display: grid; place-items: center; width: 2em; height: 2em; border-radius: 50%; background: #1c2b45; color: #fbf5e6; font: 600 .9em / 1 var(--ds-serif); box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #1c2b45; transform: rotate(-8deg); }
+.ct-card-mark { position: absolute; top: 1.2em; right: 1.3em; display: grid; place-items: center; width: 2em; height: 2em; border-radius: 50%; background: #1c2b45; color: #fbf5e6; font: 600 .78em / 1 var(--ds-serif); letter-spacing: .02em; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #1c2b45; transform: rotate(-8deg); }
 .ct-card-name { margin: 0; font: 600 1.75em / 1 var(--ds-serif); letter-spacing: -.02em; color: var(--ds-ink); }
 .ct-card-role { margin: .45em 0 0; font: 600 .62em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; color: #4a6c9b; }
 .ct-card-foot { display: grid; justify-items: start; gap: .45em; margin-top: auto; padding-top: .8em; border-top: 1px dashed #d5dbe4; }

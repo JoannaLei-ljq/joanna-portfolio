@@ -19,15 +19,15 @@ const jobs = [
     ],
   },
   {
-    id: 'karyio',
-    company: 'Reignite Life / Karyio',
-    initial: 'K',
+    id: 'reignitelife',
+    company: 'ReigniteLIFE',
+    initial: 'R',
     role: 'Software Engineer · Volunteer',
     start: ['Apr', '2026'],
     end: 'present',
     range: 'Apr 2026 – Present',
     current: true,
-    about: 'AI-powered caregiving app',
+    about: 'Nonprofit for ALS/MND research and care',
     points: [
       'Implemented backend features for care-team permissions and RAG.',
       'Shipped SwiftUI iOS features, including AI chat and voice.',
@@ -63,7 +63,7 @@ export default function ExperiencePlanner() {
   return (
     <section id="experience" className="desk-section xp" aria-labelledby="experience-heading">
       <div className="ds-inner">
-        <header className="xp-heading">
+        <header className="xp-heading" data-reveal>
           <p className="ds-eyebrow">Experience / 2024 — now</p>
           <h2 id="experience-heading">
             Where I’ve <i>worked</i>
@@ -72,7 +72,7 @@ export default function ExperiencePlanner() {
         </header>
 
         <div className="xp-layout">
-          <div className={`xp-cal xp-tone-${active + 1}`}>
+          <div className={`xp-cal xp-tone-${active + 1}`} data-reveal style={{ '--reveal-delay': '.1s' }}>
             <div className="xp-rings" aria-hidden="true">
               {Array.from({ length: 14 }, (_, i) => <span key={i} />)}
             </div>
@@ -109,7 +109,7 @@ export default function ExperiencePlanner() {
             </article>
           </div>
 
-          <div className="xp-tabs" role="tablist" aria-label="Roles" aria-orientation="vertical" onKeyDown={onKeyDown}>
+          <div className="xp-tabs" data-reveal style={{ '--reveal-delay': '.22s' }} role="tablist" aria-label="Roles" aria-orientation="vertical" onKeyDown={onKeyDown}>
             {jobs.map((item, index) => (
               <button
                 key={item.id}
