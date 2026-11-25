@@ -41,8 +41,8 @@ const featured = [
     discipline: 'Backend engineering',
     description: 'A Postgres-backed job queue with safe concurrent workers, retries, and dead-letter routing.',
     highlights: [
-      'SKIP LOCKED claiming: no job ever runs twice',
-      'Lock leases recover jobs from crashed workers',
+      'Workers claim jobs in parallel with SKIP LOCKED, so two never grab the same one',
+      'Jobs held by a crashed worker return to the queue when their lease expires',
     ],
     stack: ['Java', 'Spring Boot', 'PostgreSQL', 'Docker'],
     diagram: 'queue',

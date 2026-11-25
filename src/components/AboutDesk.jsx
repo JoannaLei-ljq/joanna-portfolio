@@ -4,7 +4,7 @@ import './AboutBoard.css';
 const terminal = [
   ['whoami', ['Joanna Lei · software engineer · Seattle, WA']],
   ['path --history', ['applied math → data analytics → computer science → full-stack']],
-  ['now', ['fullstack intern @ fAIshion', 'volunteer engineer @ ReigniteLIFE']],
+  ['now', ['fullstack intern @ fAIshion', 'software engineer intern @ ReigniteLIFE']],
   ['looking-for', ['SWE roles · full-stack · backend · applied AI']],
 ];
 // TODO(Joanna): one real line about life outside code (a hobby, Juno…) could go in the terminal as `$ off-hours`.
@@ -50,7 +50,7 @@ export default function AboutDesk() {
             <div className="ab-bar" aria-hidden="true"><span className="ab-dots"><i /><i /><i /></span>about_me.md</div>
             <div className="ab-main-body">
               <div className="ab-avatar">
-                <img src="/joanna-avatar.webp" alt="Illustration of Joanna" width="600" height="600" loading="lazy" />
+                <img src="/joanna-about-sport-portrait.jpg" alt="Joanna smiling in a light blue sweatshirt with white sleeve stripes" width="400" height="400" loading="lazy" />
               </div>
               <div>
                 <p className="ds-eyebrow">About / Joanna Lei</p>

@@ -48,7 +48,7 @@ export default function DeskHero() {
               </div>
               <div className="desk-badge-body">
                 <div className="desk-badge-photo">
-                  <img src="/joanna-illustration.webp" alt="" width="800" height="800" />
+                  <img src="/joanna-badge-professional-ivory.jpg" alt="" width="400" height="400" />
                 </div>
                 <p className="desk-badge-name">Joanna Lei</p>
                 <p className="desk-badge-role">Software Engineer</p>

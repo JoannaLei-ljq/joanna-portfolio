@@ -4,14 +4,14 @@ import './SkillsKeyboard.css';
 
 // Where each skill shows up on this site. Only list places the site itself backs up.
 const usedIn = {
-  Java: ['Distributed Task Queue'],
+  Java: ['ReigniteLIFE backend (REST APIs)', 'Distributed Task Queue'],
   Python: ['Fintech Data Platform (sync, reconciliation)', 'Brazilian E-commerce Analytics', 'Customer Retention & Cohort Analysis'],
   Swift: ['ReigniteLIFE care app (iOS)'],
   SwiftUI: ['ReigniteLIFE care app (voice, chat, summaries)'],
   TypeScript: ['CareerForge'],
   JavaScript: ['FoodCraft Plus'],
   SQL: ['Fintech Data Platform', 'Brazilian E-commerce Analytics', 'Data Analyst Intern @ Illuminera'],
-  'Spring Boot': ['Distributed Task Queue'],
+  'Spring Boot': ['ReigniteLIFE backend (REST APIs)', 'Distributed Task Queue'],
   PostgreSQL: ['Fintech Data Platform', 'Distributed Task Queue'],
   React: ['Focus Gacha', 'Task Queue dashboard', 'FoodCraft Plus'],
   'Next.js': ['CareerForge'],

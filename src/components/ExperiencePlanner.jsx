@@ -14,15 +14,15 @@ const jobs = [
     current: true,
     about: 'AI-powered fashion creative platform',
     points: [
-      'Developed lookbook review features with Next.js, Prisma, and PostgreSQL.',
-      'Designed an AI ad-generation workflow for brand campaigns.',
+      'Shipped a Next.js app that turns a brand\'s products into AI campaign and ad images.',
+      'Developed per-image billing and bulk product imports with Prisma and PostgreSQL.',
     ],
   },
   {
     id: 'reignitelife',
     company: 'ReigniteLIFE',
     initial: 'R',
-    role: 'Software Engineer · Volunteer',
+    role: 'Software Engineer Intern',
     start: ['Apr', '2026'],
     end: 'present',
     range: 'Apr 2026 – Present',
@@ -34,6 +34,20 @@ const jobs = [
     ],
   },
   {
+    id: 'martspec',
+    company: 'Martspec',
+    initial: 'M',
+    role: 'Business Analyst Intern',
+    start: ['May', '2025'],
+    end: 'Feb 2026',
+    range: 'May 2025 – Feb 2026',
+    about: 'App marketing & acquisition analytics',
+    points: [
+      'Built reusable Python and SQL ETL workflows for app and campaign data.',
+      'Led an ASO keyword strategy to improve search visibility and downloads.',
+    ],
+  },
+  {
     id: 'illuminera',
     company: 'Illuminera',
     initial: 'I',
@@ -42,7 +56,10 @@ const jobs = [
     end: 'Aug 2024',
     range: 'May 2024 – Aug 2024',
     about: 'Data analytics',
-    points: ['Automated data processing and built SQL-driven analytics and dashboards to support product decisions.'],
+    points: [
+      'Built Python pipelines to clean and standardize user behavior data.',
+      'Defined retention metrics for BI dashboards used by product and marketing.',
+    ],
   },
 ];
 

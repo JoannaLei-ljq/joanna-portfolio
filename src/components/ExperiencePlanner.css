@@ -1,15 +1,18 @@
 /* Experience — a desk calendar. Each role is a page; the badge from that job
    is clipped to it. Index tabs on the right always list every role. */
-.xp-heading { margin-bottom: 2.4em; }
+.xp { padding-bottom: 5em; }
+.xp-heading { margin-bottom: 2.2em; }
 .xp .ds-eyebrow { color: var(--ds-ink); opacity: .75; }
 .xp-tone-1 { --xp-tone: #a9c4e4; --xp-on: #1c2b45; }
 .xp-tone-2 { --xp-tone: #fbe9a0; --xp-on: #1c2b45; }
 .xp-tone-3 { --xp-tone: #dbe88a; --xp-on: #1c2b45; }
+.xp-tone-4 { --xp-tone: #e8c9b2; --xp-on: #1c2b45; }
 
-.xp-layout { display: grid; grid-template-columns: 1fr 18em; gap: 0; align-items: start; }
+.xp-layout { display: grid; grid-template-columns: 1fr 16em; gap: 0; align-items: stretch; }
 
 /* Calendar */
-.xp-cal { position: relative; padding-top: 1.1em; }
+.xp-cal { position: relative; z-index: 2; display: flex; flex-direction: column; padding-top: 1.1em; }
+.xp-cal .xp-page { flex: 1; }
 .xp-rings { position: absolute; top: 0; left: 6%; right: 6%; z-index: 3; display: flex; justify-content: space-between; }
 .xp-rings span { width: .55em; height: 2.2em; border-radius: .3em; background: linear-gradient(90deg, #4a556a, #c8d0dc 45%, #59647a); box-shadow: 0 .15em .2em rgba(0, 0, 0, .25); }
 .xp-page {
@@ -43,12 +46,12 @@
 .xp-badge-current { margin-top: .15em; padding: .15em .6em; border-radius: 99em; background: var(--ds-ink); color: #fff; font: 600 .52em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; }
 
 /* Index tabs */
-.xp-tabs { display: grid; gap: .7em; padding-top: 2.6em; }
-.xp-tab { display: grid; gap: .2em; padding: 1em 1.2em 1em 1.6em; border: 0; border-radius: 0 .6em .6em 0; background: rgba(247, 245, 240, .72); color: var(--ds-ink); text-align: left; font: inherit; cursor: pointer; box-shadow: 0 .4em .8em rgba(28, 43, 69, .12); transform: translateX(-.6em); transition: transform .2s ease, background-color .2s ease; position: relative; }
-.xp-tab::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: .45em; background: var(--xp-tone); }
-.xp-tab:hover { transform: translateX(0); background: rgba(247, 245, 240, .92); }
-.xp-tab.is-active { transform: translateX(0); background: var(--ds-paper); box-shadow: 0 .6em 1.1em rgba(28, 43, 69, .2); }
-.xp-tab.is-active::before { width: .7em; }
+.xp-tabs { position: relative; z-index: 1; display: flex; flex-direction: column; gap: .4em; margin-left: -1.4em; padding: 2em 0 1.1em; }
+.xp-tab { flex: 1 1 0; display: grid; align-content: center; gap: .15em; padding: .6em 1em .6em 2.4em; border: 0; border-radius: 0 .6em .6em 0; background: rgba(247, 245, 240, .72); color: var(--ds-ink); text-align: left; font: inherit; cursor: pointer; box-shadow: 0 .4em .8em rgba(28, 43, 69, .12); transform: none; transition: transform .25s cubic-bezier(.2, .8, .3, 1), background-color .2s ease; position: relative; }
+.xp-tab::before { content: ''; position: absolute; left: 1.4em; top: .55em; bottom: .55em; width: .35em; border-radius: 99em; background: var(--xp-tone); }
+.xp-tab:hover { transform: translateX(.35em); background: rgba(247, 245, 240, .95); }
+.xp-tab.is-active { transform: translateX(.6em); background: var(--ds-paper); box-shadow: 0 .5em 1em rgba(28, 43, 69, .18); }
+.xp-tab.is-active::before { width: .45em; }
 .xp-tab:focus-visible { outline: 3px solid var(--ds-choc); outline-offset: 3px; }
 .xp-tab-range { font: 600 .66em var(--ds-mono); letter-spacing: .06em; text-transform: uppercase; color: #4a6c9b; }
 .xp-tab-company { font: 600 1.05em / 1.2 var(--ds-serif); }
@@ -63,13 +66,14 @@
 
 @media (max-width: 1000px) {
   .xp-layout { grid-template-columns: 1fr; }
-  .xp-tabs { order: -1; grid-template-columns: repeat(3, 1fr); gap: .5em; padding: 0 0 1em; }
-  .xp-tab { padding: .8em .8em .8em 1.2em; border-radius: .5em; transform: none; }
+  .xp-tabs { order: -1; display: grid; grid-template-columns: repeat(4, 1fr); gap: .5em; margin-left: 0; padding: 0 0 1em; }
+  .xp-tab { padding: .8em .8em .8em 1.4em; border-radius: .5em; transform: none; }
+  .xp-tab::before { left: .5em; }
   .xp-tab:hover, .xp-tab.is-active { transform: none; }
 }
 @media (max-width: 640px) {
   .xp-heading { margin-bottom: 1.4em; }
-  .xp-tabs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .4em; }
+  .xp-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .4em; }
   .xp-tab { padding: .6em .55em .6em .9em; }
   .xp-tab-range, .xp-tab-role { display: none; }
   .xp-tab-company { font-size: .82em; line-height: 1.2; }

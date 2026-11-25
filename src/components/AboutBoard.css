@@ -27,7 +27,7 @@
 .ab-main { grid-area: main; z-index: 1; }
 .ab-main-body { display: grid; grid-template-columns: 8.5em 1fr; gap: 2em; align-items: start; padding: 2.4em 2.4em 2.5em; }
 .ab-avatar { aspect-ratio: 1; border-radius: 50%; filter: drop-shadow(0 .35em .6em rgba(28, 43, 69, .14)); }
-.ab-avatar img { display: block; width: 100%; height: auto; }
+.ab-avatar img { display: block; width: 100%; height: auto; border-radius: inherit; }
 .ab-main h2 { font-size: 2.45em; }
 .ab-lead { margin: 1em 0 .8em; font: 400 1.32em / 1.4 var(--ds-serif); color: var(--ds-ink); }
 .ab-main-body p:not([class]) { margin: 0; font-size: 1em; line-height: 1.65; color: var(--ds-muted); }

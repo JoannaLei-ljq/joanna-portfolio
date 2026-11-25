@@ -69,8 +69,7 @@
 .desk-badge-head span:not(.desk-badge-slot) { margin-top: 10px; }
 .desk-badge-body { padding: 12px 14px 14px; }
 .desk-badge-photo { overflow: hidden; aspect-ratio: 1; border-radius: 8px; background: var(--desk-cream); }
-/* ID-photo crop: head and shoulders from the same illustration. */
-.desk-badge-photo img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; transform-origin: 54% 30%; transform: scale(1.3); }
+.desk-badge-photo img { display: block; width: 100%; height: auto; }
 .desk-badge-name { margin: 11px 0 0; font: 700 clamp(1rem, 2.1vw, 1.3rem) / 1.1 var(--desk-serif); letter-spacing: -.01em; color: var(--desk-navy); }
 .desk-badge-role { margin: 3px 0 10px; font: 600 .58rem var(--desk-mono); letter-spacing: .12em; text-transform: uppercase; color: #4a6c9b; }
 .desk-badge-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding-top: 9px; border-top: 1px dashed #d5dbe4; font: 500 .55rem var(--desk-mono); letter-spacing: .06em; color: #6b778a; }
