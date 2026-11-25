@@ -1,0 +1,66 @@
+/* Contact — a postcard left on the desk. Builds on .desk-section (AboutDesk.css). */
+.ct {
+  padding-top: 4.5em;
+  padding-bottom: 2.2em;
+  background-color: var(--ds-blue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.ct .ds-eyebrow { color: #4a6c9b; }
+
+/* Mirrors the hero: a paper sheet on the desk, a card tucked at its left edge. */
+.ct-desk { position: relative; max-width: 64em; margin: 0 auto; padding: 1.6em 0 1em 12.5em; }
+.ct-sheet { position: relative; padding: 2.6em 3em 2.4em 10.5em; border-radius: .9em; background: var(--ds-paper); box-shadow: 0 0 0 1px rgba(28, 43, 69, .04), 0 1.4em 2.2em rgba(28, 43, 69, .22), 0 .25em .5em rgba(28, 43, 69, .08); transform: rotate(.5deg); }
+.ct-tab { position: absolute; top: -2.1em; right: 18%; padding: .55em 1.5em .5em; border-radius: .75em .75em 0 0; background: #4f74a6; color: #fff; font: 500 .72em var(--ds-mono); letter-spacing: .04em; box-shadow: 0 -2px 8px rgba(28, 43, 69, .08); }
+.ct .ct-sheet h2 { font-size: 3.4em; margin-bottom: .55em; }
+.ct-subtitle { max-width: 31em; margin: .9em 0 1.6em; font-size: 1.05em; line-height: 1.65; color: var(--ds-muted); }
+.ct-actions { display: flex; flex-wrap: wrap; gap: .75em; }
+.ct-btn { display: inline-flex; align-items: center; gap: .55em; min-height: 2.9em; padding: .7em 1.25em; border: 1.5px solid var(--ds-ink); border-radius: .4em; background: transparent; color: var(--ds-ink); font: 700 .95em var(--ds-sans); text-decoration: none; cursor: pointer; transition: transform .15s ease, background-color .15s ease; }
+.ct-btn:hover { transform: translateY(-2px); background: #fff; }
+.ct-btn-main { background: var(--ds-ink); color: #fff; }
+.ct-btn-main:hover { background: var(--ds-ink); }
+.ct-btn svg { font-size: .85em; opacity: .8; }
+.ct-btn-main svg { font-size: 1.1em; opacity: 1; }
+.ct-icon-btn { display: inline-grid; place-items: center; width: 2.9em; height: 2.9em; border: 1.5px solid var(--ds-ink); border-radius: .4em; color: var(--ds-ink); font-size: .95em; transition: transform .15s ease, background-color .15s ease; }
+.ct-icon-btn svg { font-size: 1.35em; }
+.ct-icon-btn:hover { transform: translateY(-2px); background: #fff; }
+
+/* Quick note */
+.ct-note { margin-top: 1.6em; padding-top: 1.3em; border-top: 1px dashed #d5dbe4; }
+.ct-note label { display: block; margin-bottom: .8em; font: 600 .76em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; color: #4a6c9b; }
+.ct-note-row { display: flex; gap: .75em; align-items: stretch; }
+.ct-note textarea { flex: 1; min-height: 4.6em; padding: .35em .9em .3em 2.2em; border: 0; border-radius: .3em; background: #fff repeating-linear-gradient(transparent 0 2.25em, #dbe4ef 2.25em calc(2.25em + 1px)) 0 .3em / 100% calc(2.25em + 1px); box-shadow: inset 2.1em 0 0 -2px #fff, inset calc(2.1em - 1px) 0 0 -1px #f0b9ad, 0 .3em .8em rgba(28, 43, 69, .1); color: var(--ds-ink); font: 400 1.05em / 2.25em var(--ds-sans); resize: vertical; min-height: 4.8em; }
+.ct-note textarea::placeholder { color: #8a95a6; }
+.ct-note textarea:focus { outline: none; box-shadow: inset 2.1em 0 0 -2px #fff, inset calc(2.1em - 1px) 0 0 -1px #f0b9ad, 0 0 0 2px var(--ds-ink); }
+.ct-note .ct-btn { align-self: flex-end; min-height: 3.1em; padding-inline: 1.5em; }
+.ct-note .ct-btn:disabled { opacity: .45; cursor: not-allowed; transform: none; background: transparent; }
+.ct-btn:focus-visible, .ct-icon-btn:focus-visible, .ct-card-email:focus-visible, .ct-note textarea:focus-visible { outline: 3px solid var(--ds-choc); outline-offset: 3px; }
+
+/* Business card stack, where the badge sits in the hero */
+.ct-stack { position: absolute; left: -.5em; top: 50%; z-index: 2; width: 22.5em; transform: translateY(-50%) rotate(-6deg); transition: transform .4s cubic-bezier(.2, .8, .3, 1); }
+.ct-stack:hover { transform: translateY(calc(-50% - .2em)) rotate(-5deg); }
+.ct-stack::before, .ct-stack::after { content: ''; position: absolute; inset: 0; border-radius: .5em; background: #ece8df; box-shadow: 0 0 0 1px rgba(28, 43, 69, .06), 0 .4em .8em rgba(28, 43, 69, .14); }
+.ct-stack::before { transform: rotate(4deg) translate(.4em, .4em); }
+.ct-stack::after { transform: rotate(-4deg) translate(-.3em, .5em); background: #f3efe7; }
+.ct-card { position: relative; z-index: 1; display: flex; flex-direction: column; aspect-ratio: 1.75; padding: 1.6em 1.7em 1.4em; border-radius: .5em; background: #fff; box-shadow: 0 0 0 1px rgba(28, 43, 69, .05), 0 1em 1.6em rgba(28, 43, 69, .24); }
+.ct-card-mark { position: absolute; top: 1.2em; right: 1.3em; display: grid; place-items: center; width: 2em; height: 2em; border-radius: 50%; background: #1c2b45; color: #fbf5e6; font: 600 .78em / 1 var(--ds-serif); letter-spacing: .02em; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #1c2b45; transform: rotate(-8deg); }
+.ct-card-name { margin: 0; font: 600 1.75em / 1 var(--ds-serif); letter-spacing: -.02em; color: var(--ds-ink); }
+.ct-card-role { margin: .45em 0 0; font: 600 .62em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; color: #4a6c9b; }
+.ct-card-foot { display: grid; justify-items: start; gap: .45em; margin-top: auto; padding-top: .8em; border-top: 1px dashed #d5dbe4; }
+.ct-card-email { display: inline-flex; align-items: center; gap: .5em; padding: .3em .55em; margin-left: -.55em; border: 0; border-radius: .3em; background: transparent; color: var(--ds-ink); font: 600 .78em var(--ds-mono); cursor: pointer; transition: background-color .15s ease; }
+.ct-card-email svg { font-size: .95em; color: #4a6c9b; }
+.ct-card-email:hover { background: #eef2f8; }
+.ct-card-city { font: 500 .62em var(--ds-mono); color: #6b778a; }
+.ct-copied { position: absolute; right: 1.1em; bottom: 1.1em; padding: .25em .6em; border: 2px solid #3f7f4a; border-radius: .3em; color: #3f7f4a; font: 700 .72em var(--ds-mono); letter-spacing: .08em; text-transform: uppercase; opacity: 0; transform: rotate(-10deg) scale(1.4); transition: opacity .2s ease, transform .25s cubic-bezier(.2, .8, .3, 1.4); pointer-events: none; background: rgba(255, 255, 255, .7); }
+.ct-copied.is-on { opacity: .95; transform: rotate(-10deg) scale(1); }
+
+.ct-footer { margin: 2em 0 0; text-align: center; font: 500 .72em var(--ds-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ds-ink); opacity: .7; }
+
+@media (max-width: 860px) {
+  .ct-desk { padding: 0; }
+  .ct-stack { position: relative; top: auto; width: min(18em, 80%); margin: 0 auto -1.6em; transform: rotate(-4deg); }
+  .ct-stack:hover { transform: rotate(-3deg); }
+  .ct-sheet { padding: 3em 1.3em 1.8em; transform: none; }
+  .ct-tab { display: none; }
+  .ct .ct-sheet h2 { font-size: 2.3em; }
+  .ct-note-row { flex-direction: column; }
+}

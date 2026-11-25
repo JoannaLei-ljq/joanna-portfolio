@@ -1,0 +1,66 @@
+.site-header { text-align: left; position: sticky; top: 0; z-index: 20; min-height: 72px; padding: 0 clamp(24px, 5vw, 72px); display: flex; align-items: center; justify-content: space-between; gap: 24px; background: var(--color-bg); border-bottom: 1px solid transparent; transition: border-color .18s ease, box-shadow .18s ease; }
+.site-header.is-scrolled { border-bottom-color: var(--color-border); box-shadow: 0 4px 16px var(--color-shadow); }
+.site-brand { font-family: Baskerville, 'Iowan Old Style', 'Palatino Linotype', Georgia, serif; font-size: 2rem; line-height: 1; letter-spacing: -.055em; color: var(--color-ink); text-decoration: none; }
+.site-brand span { color: var(--color-coral); }
+.site-nav { display: flex; align-items: center; gap: clamp(24px, 3vw, 44px); font-family: var(--font-sans); font-size: .8rem; }
+.site-nav > a { position: relative; padding: 25px 0; color: var(--color-muted); text-decoration: none; transition: color .15s ease; }
+.site-nav > a::after { content: ''; position: absolute; bottom: 16px; left: 0; right: 0; height: 2px; background: var(--color-accent); opacity: 0; transition: opacity .15s ease; }
+.site-nav > a:hover, .site-nav > a:focus-visible, .site-nav > a[aria-current] { color: var(--color-ink); }
+.site-nav > a:hover::after, .site-nav > a:focus-visible::after, .site-nav > a[aria-current]::after { opacity: 1; }
+.site-nav > a[aria-current] { font-weight: 600; }
+.site-resume { display: flex; align-items: center; gap: 7px; color: var(--color-muted); cursor: default; }
+.site-resume-note { font-size: .6rem; padding: 3px 6px; border: 1px solid var(--color-border); border-radius: 3px; }
+.site-menu-toggle { display: none; }
+/* Anchor offsets apply to native anchors and existing project-tab deep links. */
+#projects, #about, #skills, #contact, #hero-title { scroll-margin-top: 96px; }
+#projects:focus, #about:focus, #skills:focus, #contact:focus, #hero-title:focus { outline: none; }
+/* Quiet section boundaries, preserving existing internal layouts. */
+.projects { border-top: 1px solid var(--color-border); }
+.about { border-top: 1px solid var(--color-border); padding-top: clamp(72px, 10vh, 112px); }
+.skills { border-top: 1px solid var(--color-border); }
+.contact { border-top: 1px solid var(--color-border); }
+@media (max-width: 850px) {
+  .site-header { min-height: 68px; flex-wrap: wrap; gap: 0 24px; }
+  .site-brand { padding: 18px 0; font-size: 1.9rem; }
+  .site-menu-toggle { display: inline-flex; align-items: center; gap: 18px; min-height: 44px; padding: 10px 12px; border: 1px solid var(--color-border); border-radius: 4px; background: var(--color-bg-alt); color: var(--color-ink); font: inherit; font-size: .8rem; }
+  .site-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding: 0 24px 16px; background: var(--color-bg); border-bottom: 1px solid var(--color-border); box-shadow: 0 8px 16px var(--color-shadow); }
+  .site-nav.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 0; }
+  .site-nav > a, .site-resume { padding: 16px 8px; border-top: 1px solid var(--color-border); min-height: 48px; }
+  .site-nav > a::after { bottom: 12px; left: 8px; right: auto; width: 24px; }
+  .site-nav > a[aria-current] { background: var(--color-surface-soft); }
+  .site-resume { justify-content: space-between; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header, .site-header *, .site-header *::after { transition: none !important; }
+}
+
+/* Desk theme: same type and paper as the rest of the page, sized in em so the
+   header grows with the window. --header-h is shared with the hero. */
+:root { --header-h: clamp(72px, 4.4vw, 124px); }
+.site-header { box-sizing: border-box; height: var(--header-h); min-height: 0; padding: 0 clamp(24px, 3.4vw, 110px); font-size: clamp(16px, 1.12vw, 34px); font-family: 'DM Sans', 'Avenir Next', system-ui, sans-serif; background: #f7f5f0; }
+.site-header.is-scrolled { border-bottom-color: transparent; box-shadow: 0 .3em 1em rgba(28, 43, 69, .12); }
+.site-brand { font: 600 1.75em / 1 'Fraunces', Baskerville, Georgia, serif; letter-spacing: -.03em; color: #1c2b45; }
+.site-brand span { color: #5a3424; }
+.site-nav { gap: 2.4em; font-family: inherit; font-size: .9em; font-weight: 500; }
+.site-nav > a { padding: .8em 0; color: #1c2b45; opacity: .78; }
+.site-nav > a::after { bottom: .35em; height: 2px; background: #1c2b45; }
+.site-nav > a:hover, .site-nav > a:focus-visible, .site-nav > a[aria-current] { color: #1c2b45; opacity: 1; }
+#projects, #experience, #about, #skills, #contact { scroll-margin-top: var(--header-h); }
+@media (max-width: 850px) {
+  :root { --header-h: 68px; }
+  .site-brand { padding: 0; font-size: 1.75em; }
+  .site-menu-toggle { background: #f7f5f0; border-color: rgba(28, 43, 69, .25); color: #1c2b45; font-weight: 500; }
+  .site-nav { background: #f7f5f0; font-size: 1em; }
+  .site-nav > a { padding: 16px 8px; border-top-color: rgba(28, 43, 69, .12); }
+  .site-nav > a::after { bottom: 12px; }
+  .site-nav > a[aria-current] { background: #e9eef6; }
+}
+
+/* Brand: a monogram stamp on the desk; the full name appears only after the
+   hero (which already shows the name) has scrolled out of view. */
+.site-brand { display: inline-flex; align-items: center; gap: .6em; font-size: 1em; text-decoration: none; }
+.site-brand .site-stamp { display: grid; place-items: center; width: 2.3em; height: 2.3em; border-radius: 50%; background: #1c2b45; color: #fbf5e6; font: 600 .92em / 1 'Fraunces', Georgia, serif; letter-spacing: .02em; box-shadow: 0 0 0 2px #fbf5e6, 0 0 0 3.5px #1c2b45; transform: rotate(-8deg); transition: transform .3s ease; }
+.site-brand:hover .site-stamp { transform: rotate(4deg); }
+.site-brand .site-brand-name { font: 600 1.35em / 1 'Fraunces', Georgia, serif; letter-spacing: -.02em; color: #1c2b45; opacity: 0; transform: translateX(-6px); transition: opacity .25s ease, transform .25s ease; }
+.site-header.is-past-hero .site-brand-name { opacity: 1; transform: none; }
+@media (max-width: 850px) { .site-brand { font-size: 15px; } }

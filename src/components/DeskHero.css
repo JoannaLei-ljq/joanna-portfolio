@@ -1,0 +1,140 @@
+/* Desk hero — concept A: paper, badge and sticky notes on a powder-blue desk. */
+.desk-hero {
+  --desk-blue: #a9c4e4;
+  --desk-blue-deep: #7fa3cf;
+  --desk-navy: #1c2b45;
+  --desk-choc: #5a3424;
+  --desk-paper: #f7f5f0;
+  --desk-cream: #fbf5e6;
+  --desk-lime: #d8e85a;
+  --desk-serif: 'Fraunces', Baskerville, Georgia, serif;
+  --desk-sans: 'DM Sans', 'Avenir Next', system-ui, sans-serif;
+  --desk-hand: 'Caveat', 'Bradley Hand', cursive;
+  --desk-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  /* Fills the first screen and slides up under the (transparent) site header. */
+  --desk-header: calc(var(--header-h, 72px) + 12px);
+  min-height: 100svh;
+  margin-top: calc(-1 * var(--desk-header));
+  padding: calc(var(--desk-header) + clamp(16px, 3vw, 40px)) clamp(18px, 4vw, 48px) clamp(24px, 4vw, 48px);
+  text-align: left;
+  font-family: var(--desk-sans);
+  color: var(--desk-navy);
+  background-color: var(--desk-blue);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .35 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.desk { position: relative; width: min(1140px, 100%); transform: scale(var(--desk-scale, 1)); padding: 40px 0 60px clamp(90px, 17vw, 200px); }
+
+/* Paper folder */
+.desk-folder { position: relative; transform: rotate(-1.2deg); }
+.desk-tab { display: inline-block; margin-left: 46%; padding: 8px 24px 7px; border-radius: 12px 12px 0 0; background: #4f74a6; color: #fff; font: 500 .72rem var(--desk-mono); letter-spacing: .04em; box-shadow: 0 -2px 8px rgba(28, 43, 69, .08); }
+.desk-sheet { background: var(--desk-paper); border-radius: 14px; box-shadow: 0 0 0 1px rgba(28, 43, 69, .04), 0 22px 34px rgba(28, 43, 69, .22), 0 4px 8px rgba(28, 43, 69, .08); padding: clamp(28px, 4.5vw, 52px) clamp(24px, 5vw, 60px) clamp(26px, 3.6vw, 40px) clamp(70px, 12vw, 140px); }
+.desk-eyebrow { margin: 0 0 10px; font: 600 .72rem var(--desk-mono); letter-spacing: .12em; text-transform: uppercase; color: #4a6c9b; }
+.desk-hero h1 { margin: 0; font: 600 clamp(3.2rem, 9vw, 7.8rem) / .92 var(--desk-serif); letter-spacing: -.03em; color: var(--desk-navy); }
+.desk-hero h1 i { font-weight: 400; }
+.desk-hero h1 em { font-style: normal; color: var(--desk-choc); }
+.desk-role { display: inline-block; margin: 16px 0 14px; padding: 3px 12px; background: var(--desk-lime); color: var(--desk-navy); font-weight: 700; font-size: clamp(1rem, 2vw, 1.3rem); transform: rotate(-1.5deg); }
+.desk-intro { max-width: 52ch; margin: 0 0 24px; font-size: clamp(1rem, 1.25vw, 1.15rem); line-height: 1.55; color: #3c4a61; }
+.desk-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.desk-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 46px; padding: 12px 20px; border: 1.5px solid var(--desk-navy); border-radius: 6px; font-weight: 700; font-size: .95rem; color: var(--desk-navy); text-decoration: none; transition: transform .15s ease, background-color .15s ease; }
+.desk-btn:hover { transform: translateY(-2px); }
+.desk-btn-main { background: var(--desk-navy); color: #fff; }
+.desk-btn-ghost:hover { background: #fff; }
+.desk-socials { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 22px; }
+.desk-socials a { display: inline-flex; align-items: center; gap: 7px; font-size: .82rem; font-weight: 500; color: var(--desk-navy); text-decoration: underline; text-underline-offset: 4px; }
+.desk-socials a:hover { color: var(--desk-choc); }
+.desk-hero :is(a, button):focus-visible { outline: 3px solid var(--desk-choc); outline-offset: 3px; }
+
+/* ID badge — a short pastel lanyard and a small silver clasp, kept flat and light.
+   Shadows are box-shadows (not filters) so the motion stays smooth. */
+.desk-badge { position: absolute; left: 0; top: 0; z-index: 3; width: clamp(150px, 23vw, 228px); transform: rotate(-6deg); transform-origin: 50% 0; }
+.desk-lanyard { position: absolute; z-index: 0; left: 50%; bottom: calc(100% - 8px); width: 22px; height: 130px; margin-left: -11px; border-radius: 3px; background: linear-gradient(90deg, #8eaed6 0 3px, #fbfaf6 3px 19px, #8eaed6 19px); box-shadow: 0 4px 8px rgba(28, 43, 69, .12); transform: rotate(7deg); transform-origin: 50% 100%; -webkit-mask-image: linear-gradient(transparent, #000 40%); mask-image: linear-gradient(transparent, #000 40%); }
+.desk-lanyard::after { content: ''; position: absolute; top: 0; bottom: 4px; left: 50%; width: 0; margin-left: -.75px; border-left: 1.5px dashed rgba(127, 163, 207, .7); }
+.desk-clasp { position: relative; z-index: 2; display: block; width: 30px; height: 48px; margin: -42px auto -8px; overflow: visible; filter: drop-shadow(0 2px 2px rgba(28, 43, 69, .2)); }
+.desk-clasp rect, .desk-clasp path, .desk-clasp circle { fill: #eef1f5; stroke: #a7b1bf; stroke-width: 2; }
+.desk-clasp circle { fill: none; stroke-width: 2.5; }
+.desk-clasp-gate { fill: none !important; stroke: #c3cad4 !important; stroke-linecap: round; }
+.desk-badge-swing { position: relative; transform-origin: 50% 0; transition: transform .45s cubic-bezier(.2, .8, .3, 1); }
+.desk-badge:hover .desk-badge-swing { transform: translateY(-5px) rotate(2deg); }
+.desk-badge-card { transition: box-shadow .45s ease; }
+.desk-badge:hover .desk-badge-card { box-shadow: 0 0 0 5px rgba(207, 224, 245, .75), 0 0 0 6px rgba(127, 163, 207, .35), 0 26px 36px rgba(28, 43, 69, .26), 0 4px 8px rgba(28, 43, 69, .1); }
+.desk-badge-card { position: relative; z-index: 1; overflow: hidden; border-radius: 14px; background: #fff; box-shadow: 0 0 0 5px rgba(207, 224, 245, .75), 0 0 0 6px rgba(127, 163, 207, .35), 0 16px 26px rgba(28, 43, 69, .22), 0 3px 6px rgba(28, 43, 69, .1); }
+.desk-badge-card::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: linear-gradient(125deg, rgba(255, 255, 255, .55) 0%, rgba(255, 255, 255, 0) 32%, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, .25) 100%); pointer-events: none; }
+.desk-badge-head { position: relative; display: flex; align-items: center; justify-content: space-between; height: 34px; padding: 0 12px; background: #dbe7f5; color: #4a6c9b; font: 600 .56rem var(--desk-mono); letter-spacing: .14em; }
+.desk-badge-slot { position: absolute; left: 50%; top: 9px; width: 40px; height: 8px; margin-left: -20px; border-radius: 99px; background: #f7f9fc; box-shadow: inset 0 1px 2px rgba(28, 43, 69, .25); }
+.desk-badge-head span:not(.desk-badge-slot) { margin-top: 10px; }
+.desk-badge-body { padding: 12px 14px 14px; }
+.desk-badge-photo { overflow: hidden; aspect-ratio: 1; border-radius: 8px; background: var(--desk-cream); }
+.desk-badge-photo img { display: block; width: 100%; height: auto; }
+.desk-badge-name { margin: 11px 0 0; font: 700 clamp(1rem, 2.1vw, 1.3rem) / 1.1 var(--desk-serif); letter-spacing: -.01em; color: var(--desk-navy); }
+.desk-badge-role { margin: 3px 0 10px; font: 600 .58rem var(--desk-mono); letter-spacing: .12em; text-transform: uppercase; color: #4a6c9b; }
+.desk-badge-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding-top: 9px; border-top: 1px dashed #d5dbe4; font: 500 .55rem var(--desk-mono); letter-spacing: .06em; color: #6b778a; }
+.desk-badge-bar { flex: 0 0 46%; height: 18px; background: repeating-linear-gradient(90deg, var(--desk-navy) 0 2px, transparent 2px 4px, var(--desk-navy) 4px 5px, transparent 5px 8px, var(--desk-navy) 8px 11px, transparent 11px 13px); opacity: .85; }
+
+/* Sticky notes + mug */
+.desk-sticky { position: absolute; z-index: 4; width: 168px; margin: 0; padding: 14px 16px 16px; font: 700 1.3rem / 1.1 var(--desk-hand); color: var(--desk-navy); box-shadow: 0 10px 14px rgba(28, 43, 69, .22); }
+.desk-sticky small { display: block; margin-bottom: 4px; font: 500 .6rem var(--desk-mono); letter-spacing: .08em; text-transform: uppercase; opacity: .6; }
+.desk-sticky { transition: transform .5s cubic-bezier(.3, 1.6, .5, 1), box-shadow .3s ease; cursor: default; }
+.desk-sticky:hover { box-shadow: 0 16px 20px rgba(28, 43, 69, .22); }
+.desk-sticky-status { right: -8px; top: 6px; width: 176px; background: #fff3a6; transform: rotate(5deg); }
+.desk-sticky-status:hover { transform: rotate(-1deg) translateY(-6px); }
+.desk-sticky-now { right: 6%; bottom: 8px; width: 176px; background: #fff; transform: rotate(-3deg); }
+.desk-sticky-now:hover { transform: rotate(2deg) translateY(-6px); }
+.desk-sticky-now::before { transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.desk-sticky-now:hover::before { transform: rotate(4deg) translateY(-2px); }
+.desk-sticky-now::before { content: ''; position: absolute; top: -10px; left: 50%; width: 70px; height: 20px; margin-left: -35px; background: rgba(216, 232, 90, .85); transform: rotate(-2deg); }
+.desk-mug { position: absolute; left: clamp(10px, 5vw, 70px); bottom: -14px; z-index: 3; width: clamp(96px, 12vw, 132px); height: auto; overflow: visible; filter: drop-shadow(0 8px 10px rgba(28, 43, 69, .2)); transform: rotate(-8deg); transform-origin: 46% 55%; transition: transform .6s cubic-bezier(.3, 1.5, .5, 1); cursor: pointer; }
+.desk-mug:hover { transform: rotate(22deg) translateY(-3px); }
+.desk-mug-steam path { fill: none; stroke: rgba(255, 255, 255, .85); stroke-width: 3.5; stroke-linecap: round; opacity: 0; transform: translateY(6px); transition: opacity .4s ease, transform .8s ease; }
+.desk-mug:hover .desk-mug-steam path { opacity: 1; transform: translateY(-4px); }
+.desk-mug:hover .desk-mug-steam path:last-child { transition-delay: .12s; }
+.desk-mug-saucer { fill: #fbfbf9; stroke: #e4e7ec; stroke-width: 1.5; }
+.desk-mug-handle { fill: none; stroke: #fff; stroke-width: 11; stroke-linecap: round; }
+.desk-mug-rim { fill: #fff; stroke: #e6e9ee; stroke-width: 1.5; }
+.desk-mug-coffee { fill: #a9744f; }
+.desk-mug-crema { fill: #d6a97e; }
+.desk-mug-art { fill: #f6e7d3; }
+.desk-mug-shine { fill: none; stroke: rgba(255, 255, 255, .55); stroke-width: 3; stroke-linecap: round; }
+
+.desk-sr-only, .hero-sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .desk-folder { animation: deskIn .6s cubic-bezier(.2, .7, .3, 1) both; }
+  .desk-badge { animation: deskDrop .8s cubic-bezier(.2, .8, .3, 1) .1s both; }
+  .desk-sticky, .desk-mug { animation: deskPop .4s cubic-bezier(.2, .8, .3, 1.2) .45s both; }
+}
+@keyframes deskIn { from { opacity: 0; translate: 0 24px; } }
+@keyframes deskDrop { from { opacity: 0; translate: 0 -60px; } }
+@keyframes deskPop { from { opacity: 0; scale: .92; } }
+@media (max-width: 720px) {
+  .desk-hero { min-height: 0; }
+  .desk { padding: 96px 0 58px; }
+  .desk-tab { display: none; }
+  .desk-lanyard { height: 64px; }
+  .desk-sheet { padding: 162px 20px 26px; }
+  .desk-badge { left: 8px; width: 118px; transform: rotate(-4deg); }
+  .desk-badge-body { padding: 9px 10px 10px; }
+  .desk-badge-head { height: 26px; }
+  .desk-badge-head span:nth-child(2) { display: none; }
+  .desk-badge-slot { top: 7px; }
+  .desk-sticky { width: 150px; padding: 10px 12px 12px; font-size: 1.1rem; }
+  .desk-sticky-status { top: 28px; right: 2px; width: 150px; }
+  .desk-sticky-now { right: 6px; bottom: 4px; width: 150px; }
+  .desk-hero h1 { font-size: 3rem; }
+  .desk-role { margin: 12px 0 12px; }
+  .desk-intro { margin-bottom: 18px; font-size: .95rem; }
+  .desk-btn { min-height: 42px; padding: 10px 16px; font-size: .9rem; }
+  .desk-socials { gap: 10px 16px; margin-top: 16px; }
+  .desk-mug { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-hero *, .desk-hero *::before, .desk-hero *::after { animation: none !important; transition: none !important; }
+}
+
+/* The header sits on the desk until the page scrolls. */
+.site-header:not(.is-scrolled) { background: transparent; }
+.site-header { transition: background-color .18s ease, border-color .18s ease, box-shadow .18s ease; }
